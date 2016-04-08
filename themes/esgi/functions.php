@@ -37,7 +37,7 @@ add_action('widgets_init','sidebars');
 /*Logo d'en-tete*/
 
 $defaults = array(
-	'default-image'          => get_template_directory_uri().'/img/tumblr.jpg',
+	'default-image'          => get_template_directory_uri().'/img/Logo.gif',
 	'random-default'         => false,
 	'width'                  => 0,
 	'height'                 => 0,
