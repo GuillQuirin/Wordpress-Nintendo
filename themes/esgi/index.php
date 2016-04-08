@@ -4,7 +4,8 @@ get_header();
 if(is_home()){
 	if(have_posts()){
 		while(have_posts()){
-			the_post();?>
+			the_post();
+			?>
 			<h3><?php the_title(); ?></h3>
 			<?php 
 			$excerpt = get_the_excerpt();
@@ -27,16 +28,24 @@ if(is_home()){
 }else{
 	if(have_posts()){
 		while(have_posts()){
-			the_post();?>
+			the_post();
+			?>
 			<h1><?php the_title(); ?></h1>
-			<?php the_content();
+			<?php 
+			the_content();
 		}
 	}
 	else{
-		?><p>
+		?>
+		<p>
 		<?php _e('Sorry, no posts matched your criteria.');?>
-		</p><?php
+		</p>
+		<?php
 	}
+}
+
+if(is_active_sidebar('sidebar-1')){
+	dynamic_sidebar('sidebar-1');
 }
 
 get_footer();
