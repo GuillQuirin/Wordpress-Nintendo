@@ -1,4 +1,5 @@
 
+	</div>
 	<footer>
 	<?php 
 	if(has_nav_menu('secondary')){

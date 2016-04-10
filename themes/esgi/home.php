@@ -3,6 +3,16 @@ get_header();
 
 if(is_home()){
 	echo '<h1>C EST UN HOME</h1>';
+
+	//Presentation
+	if(have_posts()){
+		if($a = get_post(34)):
+			echo '<div id="presentation">';
+				the_post();
+				the_content();
+			echo '</div>';
+		endif;
+	}
 	if(have_posts()){
 		while(have_posts()):
 			the_post();
@@ -25,33 +35,6 @@ if(is_home()){
 		?><p>
 		<?php _e('Sorry, no posts matched your criteria.','esgi');?>
 		</p><?php
-	}
-}else{
-	echo '<h1>C EST UN HOME 2 </h1>';
-	if(have_posts()){
-		while(have_posts()):
-			the_post();
-			?>
-			<article class="post">
-				<h1><?php the_title(); ?></h1>
-				<div><?php the_content(); ?> </div>
-				<?php
-				comments_template();
-				comment_form();
-				?>
-				<ol>
-					<?php wp_list_comments(); ?>
-				</ol>
-			</article>
-			<?php
-		endwhile;
-	}
-	else{
-		?>
-		<p>
-		<?php _e('Sorry, no posts matched your criteria.');?>
-		</p>
-		<?php
 	}
 }
 

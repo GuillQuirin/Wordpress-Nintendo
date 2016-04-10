@@ -7,12 +7,13 @@
 </head>
 <body>
 	<header>
-		<img src="<?php header_image();?>">
-		<h1><?php bloginfo('name'); ?></h1>
-		<h2><?php bloginfo('description'); ?></h2>
+		<a href="<?php echo home_url( '/' ); ?>" title="HOME" ><img src="<?php header_image();?>"></a>
 		<?php 
-		if(has_nav_menu('main_menu')){
+		if(has_nav_menu('main_menu')):
 			wp_nav_menu(array('theme-location' => 'main_menu'));
-		} 
+		endif;
 		?>
+		<p id="slogan"><?php bloginfo('description'); ?></p>
 	</header>
+
+	<div id="content">
