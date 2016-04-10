@@ -11,3 +11,11 @@ Version: 0.1;
 body{
 	background-color: red;
 }
+
+header{
+
+}
+
+header img{
+	max-width: 200px;
+}

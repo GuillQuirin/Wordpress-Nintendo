@@ -8,11 +8,11 @@
 <body>
 	<header>
 		<img src="<?php header_image();?>">
+		<h1><?php bloginfo('name'); ?></h1>
+		<h2><?php bloginfo('description'); ?></h2>
+		<?php 
+		if(has_nav_menu('main_menu')){
+			wp_nav_menu(array('theme-location' => 'main_menu'));
+		} 
+		?>
 	</header>
-	<h1><?php bloginfo('name'); ?></h1>
-	<h2><?php bloginfo('description'); ?></h2>
-	<?php 
-	if(has_nav_menu('main_menu')){
-		wp_nav_menu(array('theme-location' => 'main_menu'));
-	} 
-	?>

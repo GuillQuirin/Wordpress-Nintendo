@@ -2,7 +2,7 @@
 get_header();
 
 if(is_home()){
-	echo '<h1>C EST UN INDEX</h1>';
+	echo '<h1>CECI EST UNE ARCHIVE</h1>';
 	if(have_posts()){
 		while(have_posts()):
 			the_post();
@@ -27,7 +27,7 @@ if(is_home()){
 		</p><?php
 	}
 }else{
-	echo '<h1> C EST UN INDEX 2</h1>';
+	echo '<h1>CECI EST UNE ARCHIVE 2</h1>';
 	if(have_posts()){
 		while(have_posts()):
 			the_post();
