@@ -29,7 +29,7 @@ function sidebars(){
 		'description'	=> __('Widgets in this area will be shown on', '')
 	));
 	register_sidebar(array(
-		'name' 			=> __('Second Sidebar', 'esgi'),
+		'name' 			=> __('Footer Sidebar', 'esgi'),
 		'id' 			=> 'sidebar-2',
 		'before_widget'	=> '<div>',
 		'after_widget'	=> '</div>',

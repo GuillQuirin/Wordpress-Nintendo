@@ -30,11 +30,12 @@ body{
 	}
 
 	header .menu{
-		line-height: 115px;
+		line-height: 50px;
 	}
 
 	header ul{
 		list-style-type: none;
+		margin: 0;
 	}
 
 	header li{
@@ -65,39 +66,17 @@ body{
 
 /* CONTENT */
 	#content{
-		background-color: rgba(0, 0, 0, 0.26);
+		background-color: #7BBCF6;
 		width: 100%;
 		margin: 0 auto;
 	}
 
 /* ACCUEIL */
 
-#content div{
-	width: 100%;
-    margin: 0 auto;
+.pres{
+	width: 80%;
+    margin: 0 auto;   
 }
-
-.pre{
-    position: relative;
-    background-color: #7BBCF6;
+.pres:first-line{
+	font-weight: bold;  
 }
-
-.pre p img{
-    position: absolute;
-    width: 4%;
-    height: 25%;
-}
-
-.pre img:first-child{
-	top: 5px;
-    left: 5px;
-}
-
-.pre img:nth-child(2){
-	top: 5px;
-	right: 5px;
-}
-.div_head{
-
-}
-
