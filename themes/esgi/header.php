@@ -9,7 +9,7 @@
 	?>
 </head>
 <body>
-	<header>
+	<header status="0">
 		<a href="<?php echo home_url( '/' ); ?>" title="HOME" ><img src="<?php header_image();?>"></a>
 		<?php 
 		if(has_nav_menu('main_menu')):

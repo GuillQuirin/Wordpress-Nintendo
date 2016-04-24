@@ -3,7 +3,7 @@
 get_header();
 
 if(is_home()){
-	echo '<h1>C EST UN HOME</h1>';
+	echo '<div>C EST UN HOME</div>';
 
 	if(have_posts()){
 

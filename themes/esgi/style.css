@@ -19,12 +19,13 @@ body{
 /* HEADER */
 	header{
 	    width: 100%;
-	    position: relative;
+	    position: fixed;
 	    height: 150px;
+	    background-color: white;
 	}
 
 	header img{
-		max-height: 90%;
+		max-height: 100%;
 		position: absolute;
 		left: 43%;
 	}
@@ -69,6 +70,7 @@ body{
 		background-color: #7BBCF6;
 		width: 100%;
 		margin: 0 auto;
+		height: 1000px;
 	}
 
 /* ACCUEIL */
