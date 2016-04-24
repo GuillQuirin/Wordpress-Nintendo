@@ -3,6 +3,7 @@ get_header();
 
 echo '<h1>CECI EST UNE PAGE</h1>';
 if(have_posts()){
+	the_widget(WP_Widget_Calendar);
 	while(have_posts()):
 		the_post();
 		?>

@@ -3,7 +3,10 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<title><?php wp_title(); ?></title>
-	<?php wp_head(); ?>
+	<?php
+		wp_head();
+		wp_enqueue_script( 'script' );
+	?>
 </head>
 <body>
 	<header>
@@ -15,5 +18,18 @@
 		?>
 		<p id="slogan"><?php bloginfo('description'); ?></p>
 	</header>
-
 	<div id="content">
+	<?php
+		if(!is_home()){
+			if(is_active_sidebar('sidebar-1')){
+				echo '<aside>';
+				dynamic_sidebar('sidebar-1');
+				echo '</aside>';
+			}
+			if(is_active_sidebar('sidebar-2')){
+				echo '<aside>';
+				dynamic_sidebar('sidebar-2');
+				echo '</aside>';
+			}
+		}
+	?>

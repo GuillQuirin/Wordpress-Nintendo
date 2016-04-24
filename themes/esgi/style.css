@@ -9,54 +9,95 @@ Version: 0.1;
 */
 
 body{
+	margin: 0;
 	background-color: white;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center, center;
 }
 
 /* HEADER */
-		header{
-		    width: 100%;
-		    position: relative;
-		    height: 150px;
-		    border: 3px solid black;
-		}
+	header{
+	    width: 100%;
+	    position: relative;
+	    height: 150px;
+	}
 
-		header img{
-			max-height: 90%;
-    		position: absolute;
-    		left: 43%;
-		}
+	header img{
+		max-height: 90%;
+		position: absolute;
+		left: 43%;
+	}
 
-		header .menu{
-			line-height: 115px;
-		}
+	header .menu{
+		line-height: 115px;
+	}
 
-		header ul{
-			list-style-type: none;
-		}
+	header ul{
+		list-style-type: none;
+	}
 
-		header li{
-			width: 13%;
-			text-align: center;
-			display: inline-block;
-		}
+	header li{
+		width: 20%;
+		text-align: center;
+		display: inline-block;
+	}
 
-		header li:nth-child(4){
-			margin-left: 15%;
-		}
+	header li:nth-child(3){
+		margin-left: 15%;
+	}
 
-		header #slogan{
-			position: absolute;
-		    bottom: 0;
-		    left: 0;
-		    margin: 7px 0;
-		    width: 100%;
-		    text-align: center;
-		}
+	header #slogan{
+		position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    margin: 7px 0;
+	    width: 100%;
+	    text-align: center;
+	}
 
+/* ASIDE */
+	aside{
+		position: absolute;
+		width: 20%;
+		right:0;
+	}
+
+/* CONTENT */
+	#content{
+		background-color: rgba(0, 0, 0, 0.26);
+		width: 100%;
+		margin: 0 auto;
+	}
 
 /* ACCUEIL */
 
-#content #presentation{
-	width: 70%;
+#content div{
+	width: 100%;
     margin: 0 auto;
 }
+
+.pre{
+    position: relative;
+    background-color: #7BBCF6;
+}
+
+.pre p img{
+    position: absolute;
+    width: 4%;
+    height: 25%;
+}
+
+.pre img:first-child{
+	top: 5px;
+    left: 5px;
+}
+
+.pre img:nth-child(2){
+	top: 5px;
+	right: 5px;
+}
+.div_head{
+
+}
+

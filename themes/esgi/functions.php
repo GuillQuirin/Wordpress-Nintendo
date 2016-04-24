@@ -1,10 +1,10 @@
 <?php
 
 /*Load du css*/
+
 function include_styles_scripts(){
 	wp_enqueue_style('style-name',get_stylesheet_uri());
 }
-
 add_action('wp_enqueue_scripts', 'include_styles_scripts');
 
 
@@ -16,26 +16,29 @@ function menus(){
 		)
 	);
 }
-
 add_action('init','menus');
 
 
 /*Load de la zone de widget*/
-
 function sidebars(){
 	register_sidebar(array(
 		'name' 			=> __('Main Sidebar', 'esgi'),
-		'id' 			=> 'sidebar-1',
+		'id' 			=> 'sidebar-home',
+		'before_widget'	=> '<div>',
+		'after_widget'	=> '</div>',
+		'description'	=> __('Widgets in this area will be shown on', '')
+	));
+	register_sidebar(array(
+		'name' 			=> __('Second Sidebar', 'esgi'),
+		'id' 			=> 'sidebar-2',
 		'before_widget'	=> '<div>',
 		'after_widget'	=> '</div>',
 		'description'	=> __('Widgets in this area will be shown on', '')
 	));
 }
-
 add_action('widgets_init','sidebars');
 
-/*Logo d'en-tete*/
-
+/*Load du logo d'en-tete*/
 $defaults = array(
 	'default-image'          => get_template_directory_uri().'/img/Logo.gif',
 	'random-default'         => false,
@@ -50,25 +53,25 @@ $defaults = array(
 	'admin-head-callback'    => '',
 	'admin-preview-callback' => '',
 );
-
 add_theme_support( 'custom-header', $defaults );
 
 
-/*Page admin*/
-
+/*Ajout de l'onglet Option sup dans l'interface WP*/
 function menu_page(){
 	add_menu_page('Options supplementaires','Options sup','administrator','manage_options','options_page');
 }
-
 add_action('admin_menu', 'menu_page');
 
+
+/*Champs à remplir dans l'onglet Options sup de l'interface*/
 function theme_options(){
 	register_setting('my_theme', 'background');
 	register_setting('my_theme','text_color');
 }
-
 add_action('admin_init','theme_options');
 
+
+/*Config de l'onglet Options sup*/
 function options_page(){
 	echo '<h1>Ma page d\'options</h1>'
 		.'<form action="options.php" method="post">';
@@ -82,7 +85,7 @@ function options_page(){
 		.'</form>';
 }
 
-
+/*Chargement des parametres envoyés par Options sup dans la BDD*/
 function head_style(){
 	echo '<style>'
 		.'body{'
@@ -91,17 +94,28 @@ function head_style(){
 		.get_option('text_color').'}'
 		.'</style>';
 }
-
 add_action('wp_head','head_style');
+
+
+/*Load du JQuery*/
+function my_custom_jquery() {
+    wp_enqueue_script(
+        'jQuery',
+        get_template_directory_uri() . '/js/jquery.js'
+    );
+}
+add_action('wp_enqueue_scripts', 'my_custom_jquery');
+
+
+/*Load du script.js*/
+wp_register_script( 'script', get_template_directory_uri().'/js/script.js', 'jQuery');
 
 
 
 /* Creation d'un widget */
-
 function my_widgets(){
 	register_widget('link_custom');	
 }
-
 add_action('widgets_init', 'my_widgets');
 
 class link_custom extends WP_Widget{

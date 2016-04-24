@@ -1,45 +1,44 @@
 <?php
+//Chargement du HEADER
 get_header();
 
 if(is_home()){
 	echo '<h1>C EST UN HOME</h1>';
+	?>
+	<div class="pre">
+		<?php
+		if(have_posts()){
 
-	//Presentation
-	if(have_posts()){
-		if($a = get_post(34)):
-			echo '<div id="presentation">';
-				the_post();
-				the_content();
-			echo '</div>';
-		endif;
-	}
-	if(have_posts()){
-		while(have_posts()):
-			the_post();
-			?>
-			<h3><?php the_title(); ?></h3>
-			<?php 
-			$excerpt = get_the_excerpt();
-			$content = get_the_content();
-			if($excerpt != $content){
-				the_excerpt();
-				$link = get_permalink();
-				echo '<a href="'.$link.'">Lien vers l\'article</a>';
-			}
-			else{
-				the_content('Lire la suite');
-			}
-		endwhile;
-	}
-	else{
-		?><p>
-		<?php _e('Sorry, no posts matched your criteria.','esgi');?>
-		</p><?php
-	}
+			//Nouvelle requête Wordpress
+			$requete = new WP_Query();
+
+			//Selection des articles uniquement mis en avant
+			$enavant = get_option('sticky_posts');
+			$args = array(
+				'showposts' => 3,
+				'post__in' => $enavant,
+				'caller_get_posts' => 1,
+				'orderby' => 'date',
+			);
+
+			//Execution de la boucle
+			$requete->query($args);
+			while ($requete->have_posts()) : $requete->the_post();
+
+				//Affichage de l'article
+				echo "<p>".the_title()."</p>";
+					the_content();
+				echo "<br>";
+			
+			endwhile; 
+		}
+		else{
+			echo "<p>"._e('Sorry, no posts matched your criteria.','esgi')."</p>";
+		}
+		?>
+	</div>
+	<?php
 }
 
-if(is_active_sidebar('sidebar-1')){
-	dynamic_sidebar('sidebar-1');
-}
-
+//CHARGEMENT DU FOOTER
 get_footer();
