@@ -29,8 +29,8 @@ function sidebars(){
 		'description'	=> __('Widgets in this area will be shown on', '')
 	));
 	register_sidebar(array(
-		'name' 			=> __('Footer Sidebar', 'esgi'),
-		'id' 			=> 'sidebar-2',
+		'name' 			=> __('Form Sidebar', 'esgi'),
+		'id' 			=> 'sidebar-form',
 		'before_widget'	=> '<div>',
 		'after_widget'	=> '</div>',
 		'description'	=> __('Widgets in this area will be shown on', '')
@@ -55,6 +55,38 @@ $defaults = array(
 );
 add_theme_support( 'custom-header', $defaults );
 
+/*Add post thumbnail*/
+
+function custom_theme_setup(){
+	add_theme_support('post-thumbnails');
+}
+
+add_action('after_setup_theme', 'custom_theme_setup');
+
+
+function init_fields(){
+	add_meta_box('id_poste', 'Poste au sein de l\'entreprise', 'id_poste');
+}
+
+function id_poste(){
+	global $post;
+	$custom = get_post_custom($post->ID);
+	$id_poste = $custom["id_poste"][0];
+
+	echo '<input type="text" size="70" value="';
+		echo $id_poste;
+	echo '" name="id_poste">';
+	
+
+}
+add_action("admin_init", "init_fields");
+
+function save_custom(){
+	global $post;
+	if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE){
+		return $postID;
+	}
+}
 
 /*Ajout de l'onglet Option sup dans l'interface WP*/
 function menu_page(){
@@ -145,3 +177,30 @@ class link_custom extends WP_Widget{
 			.'<input type="text" id="'.$this->get_field_id('name').'" name="'.$this->get_field_id('name').'" value="'.$instance['name'].'">';
 	}
 }
+
+/*Creation d'un nouveau type de contenu*/
+
+add_action('init', 'newcustomposttype');
+
+function newcustomposttype(){
+	register_post_type('team', 
+		array(
+			'labels' => array(
+				'name' => __('Equipe'),
+				'singular_name' => __('Membre')
+				),
+		'public' => true,
+		'has_archive' =>true,
+		'menu_position' => 4,
+		'supports' => array(
+			'title',
+			'thumbnail',
+			'revisions'
+			)
+		)
+	);
+}
+
+
+
+

@@ -10,6 +10,11 @@ if(have_posts()){
 			<h1><?php the_title(); ?></h1>
 			<div><?php the_content(); ?> </div>
 			<?php
+			$custom = get_post_custom($post->ID);
+			$content = $custom['id_poste'][0];
+			if($content){
+				echo $content;
+			}
 			comments_template();
 			comment_form();
 			?>

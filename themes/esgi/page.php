@@ -12,12 +12,8 @@ if(have_posts()){
 		<article class="post">
 			<h1><?php the_title(); ?></h1>
 			<div><?php the_content(); ?> </div>
-			<?php
-			comments_template();
-			comment_form();
-			?>
 			<ol>
-				<?php wp_list_comments(); ?>
+				<?php //wp_list_comments(); ?>
 			</ol>
 		</article>
 		<?php
@@ -31,8 +27,8 @@ else{
 	<?php
 }
 
-if(is_active_sidebar('sidebar-1')){
-	dynamic_sidebar('sidebar-1');
+if(is_active_sidebar('sidebar-form')){
+	dynamic_sidebar('sidebar-form');
 }
 
 get_footer();

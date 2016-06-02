@@ -16,7 +16,6 @@ $(document).ready(function(){
 			else{
 				TailleHeader(1);
 			}
-			content.css( "padding-top" , header.height() );
 		}
 	});
 
