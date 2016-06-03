@@ -202,5 +202,51 @@ function newcustomposttype(){
 }
 
 
+/* Shortcode */
+
+add_shortcode('short','myshortcode');
+
+function myshortcode(){
+	return '<p>Coucou, ceci est mon shortcode</p>';
+}
+
+/* CSS pour le Back */
+
+function editorstyle(){
+	add_editor_style('custome-editor-style.css');
+}
+
+add_action('after_setup_theme','editorstyle');
+
+/* Formatage de texte */
+
+function editor_tinymce($init_formats){
+	$style_formats = array(
+		array(
+			 'title' => '.translation',
+			 'block' => 'blockquote',
+			 'classes' => 'translation',
+			 'wrapper' => true
+			),
+		array(
+			 'title' => '.rtl',
+			 'block' => 'blockquote',
+			 'classes' => 'rtl',
+			 'wrapper' => true
+			),
+		array(
+			 'title' => '.translation',
+			 'block' => 'blockquote',
+			 'classes' => 'translation',
+			 'wrapper' => true
+			)
+	);
+
+	$init_formats['style_formats'] = json_encode($style_formats);
+	return $init_formats;
+}
+
+add_filter('tiny_mce_before_init','editor_tinymce');
+
 
 
