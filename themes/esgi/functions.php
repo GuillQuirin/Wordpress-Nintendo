@@ -90,7 +90,11 @@ function save_custom(){
 
 /*Ajout de l'onglet Option sup dans l'interface WP*/
 function menu_page(){
-	add_menu_page('Options supplementaires','Options sup','administrator','manage_options','options_page');
+	add_menu_page('Page d\'accueil',
+				   'Page d\'accueil',
+				   'administrator',
+				   'manage_options',
+				   'options_page');
 }
 add_action('admin_menu', 'menu_page');
 
@@ -109,12 +113,23 @@ function options_page(){
 		.'<form action="options.php" method="post">';
 		settings_fields('my_theme');
 
-		echo '<label>Description du site:'
+		echo '<label id="des">Description du site:'
 		.'<textarea name="description">'.get_option('description').'</textarea>'
 		//.'<input value="'.get_option('text_color').'" name="text_color" type="text">'
 		.'</label><input value="Mettre à jour" type="submit">'
 		.'</form>';
 }
+
+function admin_css() {
+
+$admin_handle = 'admin_css';
+$admin_stylesheet = get_template_directory_uri() . '/custome-editor-style.css';
+
+wp_enqueue_style( $admin_handle, $admin_stylesheet );
+}
+add_action('admin_print_styles', 'admin_css', 11 );
+
+
 
 function wp_after_body() {  
  do_action('wp_after_body');
