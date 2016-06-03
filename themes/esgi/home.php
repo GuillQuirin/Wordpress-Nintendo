@@ -5,15 +5,17 @@ get_header();
 if(is_home()){
 	echo '<div>C EST UN HOME</div>';
 
+	wp_after_body();
+	
 	if(have_posts()){
-
+		get_option('description');
 		//Nouvelle requête Wordpress
 		$requete = new WP_Query();
 
 		//Selection des articles uniquement mis en avant
 		$enavant = get_option('sticky_posts');
 		$args = array(
-			'showposts' => 3,
+			'showposts' => 2,
 			'post__in' => $enavant,
 			'caller_get_posts' => 1,
 			'order' => 'ASC',

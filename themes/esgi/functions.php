@@ -97,7 +97,7 @@ add_action('admin_menu', 'menu_page');
 
 /*Champs à remplir dans l'onglet Options sup de l'interface*/
 function theme_options(){
-	register_setting('my_theme', 'background');
+	register_setting('my_theme', 'description');
 	register_setting('my_theme','text_color');
 }
 add_action('admin_init','theme_options');
@@ -105,17 +105,27 @@ add_action('admin_init','theme_options');
 
 /*Config de l'onglet Options sup*/
 function options_page(){
-	echo '<h1>Ma page d\'options</h1>'
+	echo '<h1>Configuration de la page d\'accueil</h1>'
 		.'<form action="options.php" method="post">';
 		settings_fields('my_theme');
 
-		echo '<label>Background'
-		.'<input value="'.get_option('background').'" name="background" type="text">'
-		.'</label><label>Text'
-		.'<input value="'.get_option('text_color').'" name="text_color" type="text">'
+		echo '<label>Description du site:'
+		.'<textarea name="description">'.get_option('description').'</textarea>'
+		//.'<input value="'.get_option('text_color').'" name="text_color" type="text">'
 		.'</label><input value="Mettre à jour" type="submit">'
 		.'</form>';
 }
+
+function wp_after_body() {  
+ do_action('wp_after_body');
+}
+
+function contenu_description() {
+	echo "<div>". get_option('description')."</div>";
+}
+
+add_action( 'wp_after_body', 'contenu_description' );
+
 
 /*Chargement des parametres envoyés par Options sup dans la BDD*/
 function head_style(){

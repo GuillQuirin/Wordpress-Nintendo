@@ -13,7 +13,7 @@ if(have_posts()){
 			<h1><?php the_title(); ?></h1>
 			<div><?php the_content(); ?> </div>
 			<ol>
-				<?php //wp_list_comments(); ?>
+				<?php wp_list_comments(); ?>
 			</ol>
 		</article>
 		<?php
