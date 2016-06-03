@@ -1,0 +1,5 @@
+plugins/wordpress-importer/languages/wordpress-importer.pot
+plugins/wordpress-importer/parsers.php
+plugins/wordpress-importer/readme.txt
+plugins/wordpress-importer/tmp-wordpress-importer-readme.pot
+plugins/wordpress-importer/wordpress-importer.php
