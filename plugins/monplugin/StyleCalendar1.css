@@ -1,0 +1,47 @@
+div.year{position:absolute;z-index:4;top:30px;left:120px;}
+div.months{position:absolute;z-index:4; top:50px;margin-left:5px;}/*Liste des mois*/
+div.month{position:absolute;z-index:4;top:85px; width:270px;}/*Mois selectionné*/
+.year{font-weight:700; font-size:1.40em;}
+.months{ font-size:0.75em;}
+.month{ empty-cells:hide;}
+
+div.month table td .events{
+	position:absolute;
+	display:none;
+}
+.day{
+	font-size:1em;
+	margin:0px;
+	text-align:center;
+}
+div.month table {
+	width: 200px;
+	height:230px;
+}
+div.month table th {
+border-style:ridge;
+border-color:black;
+color:black;
+background-image:url(Image/image.jpg);
+border-radius:5px;
+font-size:1.05em;
+}
+div.month table td {
+border-style:solid;
+border-color:grey;
+border-radius:1px;
+}
+div.month table td li{
+	position:relative;
+}
+.pokeball{
+	position:absolute;
+	width:14px;height:14px;
+}
+
+div.day a:link {text-decoration:none;}
+div.months a:link {text-decoration:none;}
+div.months a:visited {text-decoration:none;}
+div.months a:hover {text-decoration:none;color:green;}
+div.months a:active {text-decoration:none;color:green;}	
+
