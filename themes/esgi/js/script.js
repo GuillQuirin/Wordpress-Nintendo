@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var header = $("header");
 	var content = $("#content");
 
-	TailleHeader(1);
+	TailleHeader(0);
 	content.css( "padding-top" , header.height() );
 	$(".pres").css( "height" , (fenetre.height()/2)-header.height() );
 
@@ -27,7 +27,7 @@ $(document).ready(function(){
 			}
 		);
 		else 
-			header.animate( {"height" : fenetre.height()/10}, 400, function(){
+			header.animate( {"height" : fenetre.height()/8}, 400, function(){
 				header.attr("status","0");
 			}
 		);
