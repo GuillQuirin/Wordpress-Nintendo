@@ -1,6 +1,6 @@
 <?php
 
-<?php
+
 		require('Fonctions.php');
 		require('BDD.php');
 						// On utilise la foncion de Date1.php pour récupérer la date actuelle
