@@ -102,7 +102,54 @@ add_action('admin_menu', 'menu_page');
 /*Champs à remplir dans l'onglet Options sup de l'interface*/
 function theme_options(){
 	register_setting('my_theme', 'description');
-	register_setting('my_theme','text_color');
+	//register_setting('my_theme','img');
+
+	if(isset($_FILES["img"])){
+		if($_FILES["img"]["error"] > 0)
+		{
+			echo "Error: " . $_FILES["img"]["error"] . "<br>";
+		}
+		else
+		{
+
+			$PreFileName = ($_FILES["img"]["name"]);
+			$FileName = str_replace(" ","", $PreFileName);
+			$FileType = ($_FILES["img"]["type"]);
+			$FileSize = intval($_FILES['img']['size']);
+			$FileLocation = $_FILES["img"]["tmp_name"];
+			$FileContent = (file_get_contents($_FILES  ['img']['tmp_name']));
+
+			// echo "FileName: " . $FileName;
+			// echo "<br>";
+			// echo "FileType: " . $FileType;
+			// echo "<br>";
+			// echo "FileSize: " . $FileSize;
+			// echo "<br>";
+			// echo "FileLocation: " . $FileLocation;
+			// echo "<br>";
+
+			$url = plugin_dir_path( __FILE__ );
+			move_uploaded_file($_FILES["img"]["tmp_name"], $url .'/img/'. $_FILES["img"]["name"]);
+
+		}
+		global $wpdb;
+
+		// $wpdb->insert(
+		// 	'wp_options',
+		// 	array(
+		// 		'img' => $FileName
+		// 	)
+		// );
+
+		$wpdb->query("UPDATE wp_options SET option_value='".$FileName."' WHERE option_name='img'");
+		$wpdb->show_errors();
+		// $wpdb->update(
+		//     $wpdb->prefix.'wp_options',
+		//     array('option_value' => $FileName),
+		//     array('option_name' => 'img')
+		// );
+
+	}
 }
 add_action('admin_init','theme_options');
 
@@ -110,12 +157,13 @@ add_action('admin_init','theme_options');
 /*Config de l'onglet Options sup*/
 function options_page(){
 	echo '<h1>Configuration de la page d\'accueil</h1>'
-		.'<form action="options.php" method="post">';
+		.'<form action="options.php" method="post" enctype="multipart/form-data">';
 		settings_fields('my_theme');
 
 		echo '<label id="des">Description du site:'
 		.'<textarea name="description">'.get_option('description').'</textarea>'
-		//.'<input value="'.get_option('text_color').'" name="text_color" type="text">'
+		.'<input value="'.get_option('img').'" name="img" type="file">'
+		.wp_nonce_field( 'img', 'img_nonce' )
 		.'</label><input value="Mettre à jour" type="submit">'
 		.'</form>';
 }
@@ -137,6 +185,7 @@ function wp_after_body() {
 
 function contenu_description() {
 	echo "<div>". get_option('description')."</div>";
+	echo "<div><img src='".get_template_directory_uri()."/img/". get_option('img')."'></div>";
 }
 
 add_action( 'wp_after_body', 'contenu_description' );
