@@ -101,71 +101,90 @@ add_action('admin_menu', 'menu_page');
 
 /*Champs à remplir dans l'onglet Options sup de l'interface*/
 function theme_options(){
-	register_setting('my_theme', 'description');
-	//register_setting('my_theme','img');
+	global $wpdb;
 
-	if(isset($_FILES["img"])){
+	//Enregistrement du texte Description
+	register_setting('my_theme', 'description');
+
+	//Enregistrement de l'image en banniere
+	if(isset($_FILES["img"]) && $_FILES["img"]["error"]!=4){
+
 		if($_FILES["img"]["error"] > 0)
-		{
 			echo "Error: " . $_FILES["img"]["error"] . "<br>";
-		}
 		else
 		{
 
 			$PreFileName = ($_FILES["img"]["name"]);
 			$FileName = str_replace(" ","", $PreFileName);
-			$FileType = ($_FILES["img"]["type"]);
-			$FileSize = intval($_FILES['img']['size']);
-			$FileLocation = $_FILES["img"]["tmp_name"];
-			$FileContent = (file_get_contents($_FILES  ['img']['tmp_name']));
-
-			// echo "FileName: " . $FileName;
-			// echo "<br>";
-			// echo "FileType: " . $FileType;
-			// echo "<br>";
-			// echo "FileSize: " . $FileSize;
-			// echo "<br>";
-			// echo "FileLocation: " . $FileLocation;
-			// echo "<br>";
+			// $FileType = ($_FILES["img"]["type"]);
+			// $FileSize = intval($_FILES['img']['size']);
+			// $FileLocation = $_FILES["img"]["tmp_name"];
+			// $FileContent = (file_get_contents($_FILES  ['img']['tmp_name']));
 
 			$url = plugin_dir_path( __FILE__ );
 			move_uploaded_file($_FILES["img"]["tmp_name"], $url .'/img/'. $_FILES["img"]["name"]);
 
 		}
-		global $wpdb;
-
-		// $wpdb->insert(
-		// 	'wp_options',
-		// 	array(
-		// 		'img' => $FileName
-		// 	)
-		// );
-
 		$wpdb->query("UPDATE wp_options SET option_value='".$FileName."' WHERE option_name='img'");
-		$wpdb->show_errors();
-		// $wpdb->update(
-		//     $wpdb->prefix.'wp_options',
-		//     array('option_value' => $FileName),
-		//     array('option_name' => 'img')
-		// );
-
 	}
+
+	//Enregistrement du background en banniere
+	if(isset($_FILES["bg"]) && $_FILES["bg"]["error"]!=4){
+
+		if($_FILES["bg"]["error"] > 0)
+			echo "Error: " . $_FILES["bg"]["error"] . "<br>";
+		else
+		{
+
+			$PreFileName = ($_FILES["bg"]["name"]);
+			$FileName = str_replace(" ","", $PreFileName);
+			// $FileType = ($_FILES["bg"]["type"]);
+			// $FileSize = intval($_FILES['bg']['size']);
+			// $FileLocation = $_FILES["bg"]["tmp_name"];
+			// $FileContent = (file_get_contents($_FILES  ['bg']['tmp_name']));
+
+			$url = plugin_dir_path( __FILE__ );
+			move_uploaded_file($_FILES["bg"]["tmp_name"], $url .'/img/'. $_FILES["bg"]["name"]);
+
+		}
+		$results = $wpdb->get_results("SELECT COUNT(*) as nb FROM wp_options WHERE option_name='bg'");
+		
+		if($results[0]->nb == 0)
+			$wpdb->query("INSERT INTO wp_options (option_name, option_value) VALUES ('bg', '".$FileName."')");
+		else	
+			$wpdb->query("UPDATE wp_options SET option_value='".$FileName."' WHERE option_name='bg'");
+	}
+	$wpdb->show_errors();
 }
 add_action('admin_init','theme_options');
 
 
 /*Config de l'onglet Options sup*/
 function options_page(){
-	echo '<h1>Configuration de la page d\'accueil</h1>'
-		.'<form action="options.php" method="post" enctype="multipart/form-data">';
+	
+	echo '<h1>Configuration de la page d\'accueil</h1>';
+	echo '<form action="options.php" method="post" enctype="multipart/form-data">';
+			
 		settings_fields('my_theme');
 
-		echo '<label id="des">Description du site:'
-		.'<textarea name="description">'.get_option('description').'</textarea>'
-		.'<input value="'.get_option('img').'" name="img" type="file">'
-		.wp_nonce_field( 'img', 'img_nonce' )
-		.'</label><input value="Mettre à jour" type="submit">'
-		.'</form>';
+		echo '<label><p>Description du site:</p>'
+				.'<textarea name="description" id="banniere_desc">'.get_option('description').'</textarea>'
+			.'</label>';
+		
+		echo '<label for="label_img"><p>Image de bannière</p>';
+			echo '<img id="banniere_img" src="'.get_template_directory_uri().'/img/'.get_option("img").'">';
+			echo '<input id="label_img" name="img" type="file">';
+		echo '</label>';
+
+
+		echo '<label for="label_bg"><p>Fond d\'écran de la bannière</p>';
+			echo '<img id="banniere_bg" src="'.get_template_directory_uri().'/img/'.get_option("bg").'">';
+			echo '<input id="label_bg" name="bg" type="file">';
+		echo '</label>';
+
+		echo '<input id="banniere_submit" value="Mettre à jour" type="submit">';
+
+	echo '</form>';
 }
 
 function admin_css() {
@@ -184,8 +203,13 @@ function wp_after_body() {
 }
 
 function contenu_description() {
-	echo "<div>". get_option('description')."</div>";
-	echo "<div><img src='".get_template_directory_uri()."/img/". get_option('img')."'></div>";
+	
+	echo "<img id='banniere_bg' src='".get_template_directory_uri()."/img/". get_option('bg')."'>";
+
+	echo "<div id='banniere'>";
+		echo "<div id='banniere_img'><img src='".get_template_directory_uri()."/img/". get_option('img')."'></div>";
+		echo "<div id='banniere_desc'>".get_option('description')."</div>";
+	echo "</div>";
 }
 
 add_action( 'wp_after_body', 'contenu_description' );

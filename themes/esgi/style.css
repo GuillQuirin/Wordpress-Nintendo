@@ -75,13 +75,32 @@ body{
 
 /* ACCUEIL */
 
-.pres{
-	width: 80%;
-    margin: 0 auto;   
+#banniere{
+    width: 70%;
+    margin: 0 auto;
 }
-.pres:first-line{
-	font-weight: bold;  
+
+#banniere img{
+	max-width: 100%;
 }
+
+#banniere_bg{
+
+}
+
+#banniere_img{
+    width: 20%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#banniere_desc{
+    display: inline-block;
+    width: 70%;
+    font-size: 20px;
+    padding: 10px;
+}
+
 
 /* FAQ */
 

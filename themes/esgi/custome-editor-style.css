@@ -3,7 +3,20 @@ body{
 	color:red;
 }
 
-#des{
-	color: green;
-	text-decoration: underline;
+#banniere_desc{
+	width: 70%;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+#banniere_img{
+    display: block;
+    max-width: 20%;
+}
+
+#banniere_submit{
+	width: 15%;
+    display: block;
+    margin: 50px auto;
 }
