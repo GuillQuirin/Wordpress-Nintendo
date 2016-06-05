@@ -12,24 +12,33 @@ if(is_home()){
 
 		//Selection des articles uniquement mis en avant
 		$enavant = get_option('sticky_posts');
+		$nb_article = (get_option('nb_avant')!==null && get_option('nb_avant')!=0) ? get_option('nb_avant') : 4;
+
 		$args = array(
-			'showposts' => 6,
+			'showposts' => $nb_article,
 			'post__in' => $enavant,
 			'caller_get_posts' => 1,
 			'order' => 'ASC',
 			'orderby' => 'ID',
 		);
-
-		//Execution de la boucle
-		$requete->query($args);
-		while ($requete->have_posts()) : $requete->the_post();
-			echo "<div class='pres'>";
-				//Affichage de l'article
-				echo "<p>".the_title()."</p>";
-					the_content();
-				echo "<br>";
-			echo "</div>";
-		endwhile; 
+		
+		//Affichage seulement pour les articles en avant
+		if(!empty($enavant)){
+			echo "<section id='news'>";
+				//Execution de la boucle
+				$requete->query($args);
+				$cpt=0;
+				while ($requete->have_posts()) : $requete->the_post();
+					echo ($cpt==0) ? "<article class='pres-0'>" : "<article class='pres'>";
+						//Affichage de l'article
+						 the_title();
+							if($cpt==0) the_content();
+						echo "<br>";
+					echo "</article>";
+					$cpt++;
+				endwhile; 
+			echo "</section>";
+		}
 	}
 	else{
 		echo "<p>"._e('Sorry, no posts matched your criteria.','esgi')."</p>";

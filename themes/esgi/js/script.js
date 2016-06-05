@@ -5,7 +5,6 @@ $(document).ready(function(){
 
 	TailleHeader(0);
 	content.css( "padding-top" , header.height() );
-	$(".pres").css( "height" , (fenetre.height()/2)-header.height() );
 
 	$(window).scroll(function(){
 		console.log(fenetre.scrollTop());
