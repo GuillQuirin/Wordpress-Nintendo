@@ -8,11 +8,11 @@
 
 #banniere_bg{
     max-width: 50%;
-    display: block;
+    display: inline-block;
 }
 
 #banniere_img{
-    display: block;
+    display: inline-block;
     max-width: 20%;
 }
 
@@ -20,4 +20,8 @@
 	width: 15%;
     display: block;
     margin: 50px auto;
+}
+
+input{
+    display: block;
 }

@@ -150,7 +150,7 @@ function options_page(){
 			
 		settings_fields('my_theme');
 
-		echo '<label><p>Description du site:</p>'
+		echo '<label><h3>Description du site:</h3>'
 				.'<textarea name="description" id="banniere_desc">'.get_option('description').'</textarea>'
 			.'</label>';
 
@@ -158,15 +158,15 @@ function options_page(){
 				.'<input type="number" name="nb_avant" min="0" max="6" value="'.get_option('nb_avant').'"> articles'
 			.'</label>';
 		*/
-			
-		echo '<p>Image de bannière</p>';
+
+		echo '<h3>Image de bannière</h3>';
 		echo '<label for="label_img">';
 			echo '<img id="banniere_img" src="'.get_template_directory_uri().'/img/'.get_option("img").'">';
 			echo '<input id="label_img" name="img" type="file">';
 		echo '</label>';
 
 
-		echo '<p>Fond d\'écran de la bannière</p>';
+		echo '<h3>Fond d\'écran de la bannière</h3>';
 		echo '<label for="label_bg">';
 			echo '<img id="banniere_bg" src="'.get_template_directory_uri().'/img/'.get_option("bg").'">';
 			echo '<input id="label_bg" name="bg" type="file">';
