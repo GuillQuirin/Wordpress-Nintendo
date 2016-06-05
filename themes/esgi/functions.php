@@ -302,11 +302,7 @@ function newcustomposttype(){
 
 /* Shortcode */
 
-add_shortcode('short','myshortcode');
-
-function myshortcode(){
-	return '<p>Coucou, ceci est mon shortcode</p>';
-}
+add_shortcode('Calendrier','calendrierplug');
 
 /* CSS pour le Back */
 

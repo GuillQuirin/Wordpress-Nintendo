@@ -1,4 +1,5 @@
 <?php
+	include('Base_donnees.php');
 	// On commence par récupérer les données utiles aux requêtes
 	$date = new Date();
 	$year = date('Y');

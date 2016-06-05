@@ -1,13 +1,4 @@
-<head>
 
-	<link rel="stylesheet" type="text/css" href="FichierCss.css">
-	<link rel="stylesheet" type="text/css" href="StyleCalendar1.css">
-	<meta name="keywords" content="association; nintendo;esgi;jeux;informatique;ecole">
-	<script src="jquery.js"></script>
-
-</head>
-
-<body>
 
 	<?php
 		require('Fonctions.php');

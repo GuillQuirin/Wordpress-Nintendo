@@ -1,9 +1,9 @@
 <?php
 get_header();
 
-echo '<h1>CECI EST UNE PAGE</h1>';
+
 if(have_posts()){
-	the_widget(WP_Widget_Calendar);
+
 	//Articles non mis en avant
 	$query = new WP_Query( array( 'post__not_in' => get_option( 'sticky_posts' ) ) );
 	while(have_posts()):
