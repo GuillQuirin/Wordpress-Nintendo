@@ -106,21 +106,23 @@ body{
 }
 
 section#news{
-	
+	width: 90%;
+	height: 250px;
+	margin: 40px auto;
 }
 
 article.pres-0{
-	width: 60%;
+    width: 60%;
     font-size: 20px;
+    height: 100%;
     float: left;
 }
 
 article.pres{
-	height: auto;
+	height: 33%;
     float: left;
-    width: 35%;
-    margin: 10px 0;
-    padding: 10px 5px;
+    width: 33%;
+    padding: 0 1%;
 }
 
 /* FAQ */

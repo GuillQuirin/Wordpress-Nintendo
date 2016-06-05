@@ -88,6 +88,8 @@ function save_custom(){
 	}
 }
 
+
+
 /*Ajout de l'onglet Option sup dans l'interface WP*/
 function menu_page(){
 	add_menu_page('Page d\'accueil',
@@ -104,7 +106,7 @@ function theme_options(){
 
 	//Enregistrement du texte Description
 	register_setting('my_theme', 'description');
-	register_setting('my_theme', 'nb_avant');
+	//register_setting('my_theme', 'nb_avant');
 
 	//Enregistrement de l'image en banniere
 	if(isset($_FILES["img"]) && $_FILES["img"]["error"]!=4)
@@ -152,10 +154,11 @@ function options_page(){
 				.'<textarea name="description" id="banniere_desc">'.get_option('description').'</textarea>'
 			.'</label>';
 
-		echo '<label><p>Derniers articles en avant à mettre dans le widget:</p>'
+		/*echo '<label><p>Derniers articles en avant à mettre dans le widget:</p>'
 				.'<input type="number" name="nb_avant" min="0" max="6" value="'.get_option('nb_avant').'"> articles'
 			.'</label>';
-
+		*/
+			
 		echo '<p>Image de bannière</p>';
 		echo '<label for="label_img">';
 			echo '<img id="banniere_img" src="'.get_template_directory_uri().'/img/'.get_option("img").'">';
@@ -206,7 +209,7 @@ add_action( 'wp_after_body', 'contenu_description' );
 function head_style(){
 	echo '<style>'
 		.'body{'
-			.'background-color:'. get_option('background').';'
+			
 			.'color:'
 		.get_option('text_color').'}'
 		.'</style>';
