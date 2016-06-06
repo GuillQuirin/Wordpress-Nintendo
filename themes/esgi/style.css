@@ -25,7 +25,7 @@ a{
 	    position: fixed;
 	    height: 150px;
 	    background-color: white;
-	    z-index: 2;
+	    z-index: 100;
 	}
 	
 	div#header{
@@ -205,34 +205,26 @@ article.pres-0 img, article.pres img{
     	position: inherit;
     	left: 0;
 	}
-	
-	.menu-menu-container{
-	    display: inline-block;
-		width: 70%;
-		height: 100%;
-		position: relative;
-	}
-	
+		
 	ul.menu{
-	    margin: 0;
-	    padding: 0;
-	    width: 100%;
-	    height: 100%;
-	    line-height: normal;
+	padding: 0;
+    width: 100%;
+    line-height: normal;
+    position: absolute;
 	}
-
+	
+	header li:nth-child(3) {
+	    margin-left: initial;
+	}
+	
 	header li{
-	    width: 100%;
+	    width: 49%;
 	    text-align: center;
 	    display: inline-block;
 	    margin: 3px 0;
 	    line-height: normal;
 	}
 	
-	header li:nth-child(3){
-		margin: 0;
-	}
-
 	header #slogan{
 		display: none;
 	}
