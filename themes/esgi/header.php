@@ -10,13 +10,17 @@
 </head>
 <body>
 	<header status="0">
-		<a href="<?php echo home_url( '/' ); ?>" title="HOME" ><img src="<?php header_image();?>"></a>
-		<?php 
-		if(has_nav_menu('main_menu')):
-			wp_nav_menu(array('theme-location' => 'main_menu'));
-		endif;
-		?>
-		<p id="slogan"><?php bloginfo('description'); ?></p>
+		<div id="header">
+			<div id="logo">
+				<a href="<?php echo home_url( '/' ); ?>" title="HOME" ><img src="<?php header_image();?>"></a>
+				<p id="slogan"><?php bloginfo('description'); ?></p>
+			</div>
+			<?php 
+			if(has_nav_menu('main_menu')):
+				wp_nav_menu(array('theme-location' => 'main_menu'));
+			endif;
+			?>
+		</div>
 	</header>
 	<div id="content">
 	<?php
