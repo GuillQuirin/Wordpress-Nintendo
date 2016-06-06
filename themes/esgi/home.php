@@ -32,27 +32,23 @@ if(is_home()){
 					
 					$imageData = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'medium');
 					
-					echo ($cpt==0) ? "<article class='pres-0'>" : "<article class='pres'>";
+					echo "<a href='".get_permalink()."'>";
+						echo ($cpt==0) ? "<article class='pres-0'>" : "<article class='pres'>";
 
-					// echo "background-image:url(".$imageData[0].");"
-					// 	."background-size:cover;"
-					// 	."background-repeat:no-repeat;"
-					// 	."background-position:50% 50%;"
-					// 	."background-color:rgba(134, 129, 129, 0.59);'>";
-					
-					echo "<p class='titre'>";
-						the_title();
-					echo "</p>";
+						echo "<p class='titre'>";
+							the_title();
+						echo "</p>";
 
-					echo "<div class='description'>";
-						if($cpt==0) the_content();
-					echo "</div>";
+						echo "<div class='description'>";
+							if($cpt==0) the_content();
+						echo "</div>";
 
-					echo "<img src='";
-						echo $imageData[0];
-					echo "'>";
+						echo "<img src='";
+							echo $imageData[0];
+						echo "'>";
 
-					echo "</article>";
+						echo "</article>";
+					echo "</a>";
 					$cpt++;
 				endwhile; 
 			echo "</section>";

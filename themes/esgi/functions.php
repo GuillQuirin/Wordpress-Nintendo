@@ -107,6 +107,8 @@ function theme_options(){
 	//Enregistrement du texte Description
 	register_setting('my_theme', 'description');
 	//register_setting('my_theme', 'nb_avant');
+	register_setting('my_theme','background');	
+	register_setting('my_theme','text-color');
 
 	//Enregistrement de l'image en banniere
 	if(isset($_FILES["img"]) && $_FILES["img"]["error"]!=4)
@@ -152,6 +154,14 @@ function options_page(){
 
 		echo '<label><h3>Description du site:</h3>'
 				.'<textarea name="description" id="banniere_desc">'.get_option('description').'</textarea>'
+			.'</label>';
+
+		echo '<label><h3>Couleur de fond:</h3>'
+				.'<input type="color" name="background" value='.get_option('background').'>'
+			.'</label>';
+
+		echo '<label><h3>Couleur du texte:</h3>'
+				.'<input type="color" name="text-color" value='.get_option('text-color').'>'
 			.'</label>';
 
 		/*echo '<label><p>Derniers articles en avant à mettre dans le widget:</p>'
@@ -209,9 +219,10 @@ add_action( 'wp_after_body', 'contenu_description' );
 function head_style(){
 	echo '<style>'
 		.'body{'
-			
+			.'background-color:'
+			.get_option('background').';'	
 			.'color:'
-		.get_option('text_color').'}'
+		.get_option('text-color').';}'
 		.'</style>';
 }
 add_action('wp_head','head_style');
