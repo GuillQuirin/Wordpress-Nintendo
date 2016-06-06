@@ -217,6 +217,7 @@ add_action( 'wp_after_body', 'contenu_description' );
 
 /*Chargement des parametres envoyés par Options sup dans la BDD*/
 function head_style(){
+	echo '<meta name="viewport" content="width=device-width" />';
 	echo '<style>'
 		.'body{'
 			.'background-color:'
