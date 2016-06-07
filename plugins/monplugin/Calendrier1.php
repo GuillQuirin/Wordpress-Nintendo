@@ -12,7 +12,7 @@
 
 		
 		<div class="year">
-			<?php echo $year; ?>
+
 		</div> <!-- Affichage de l'année --> 
 		<div class="months">
 				<?php foreach ($date->months as $id=>$m) 
