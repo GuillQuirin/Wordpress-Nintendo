@@ -17,7 +17,7 @@
 			</div>
 			<?php 
 			if(has_nav_menu('main_menu')):
-				wp_nav_menu(array('theme-location' => 'main_menu'));
+				wp_nav_menu(array('theme_location' => 'main_menu'));
 			endif;
 			?>
 		</div>

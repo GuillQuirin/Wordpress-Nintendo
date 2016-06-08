@@ -29,7 +29,7 @@ a{
 	}
 	
 	div#header{
-		width: 95%;
+		width: 100%;
 		height: 100%;
 		margin: 0 auto;
 		position: relative;
@@ -94,9 +94,9 @@ a{
 /* CONTENT */
 	#content{
 		// background-color: #7BBCF6;
-		width: 95%;
+		width: 100%;
+		height: 100%;
 		margin: 0 auto;
-		height: 1000px;
 	}
 
 /* ACCUEIL */
@@ -198,6 +198,18 @@ article.pres-0 img, article.pres img{
 
 #faq li:first-line{
 	font-weight: bold;
+}
+
+
+footer{
+	float: left;
+    width: 100%;
+}
+
+footer li{
+    display: inline-block;
+    width: 15%;
+    text-align: center;
 }
 
 @media all and (max-width: 800px) {
