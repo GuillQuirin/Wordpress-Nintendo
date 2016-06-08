@@ -43,7 +43,7 @@
 								foreach($days as $d=>$w) 
 								{ ?>
 									<?php $time = strtotime("$year-$m-$d"); ?> <!-- On initialise une variable où on stocke la date de chaque jour au moment du traitement -->
-									<?php if($m!=9 && $m!=12 && $d ==1) 
+									<?php if($m!=2 && $m!=8 && $d ==1)
 											{ ?>
 												<td colspan="<?php echo $w-1; ?>"></td> <!-- Ajout de colonne vide par rapport au premier jour du mois à afficher -->
 									  <?php }; ?>
@@ -57,7 +57,7 @@
 															if($poke==0) 
 																{
 																echo "<a href=\"Calendrier2.php\">$d</a>"; //Redirection de l'évènement vers le Gros Calendrier 
-																echo "<img class=\"pokeball\" alt=\"Pokeball\" src=\"Image/Pokeball.gif\">";
+																echo "<img class='pokeball' alt='Pokeball' src='http://localhost/wordpress/wordpress/wp-content/uploads/2016/04/Pokeball.gif'>";
 																$poke=1;
 																}
 															} 

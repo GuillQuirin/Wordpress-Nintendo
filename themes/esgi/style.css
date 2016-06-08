@@ -357,87 +357,182 @@ footer li{
 
 /* Calendrier */
 
+@media screen and (min-width: 1060px) {
 
-.months{ font-size:2em; position:relative; top:10px; left:410px; } /* Taille et position des liens de mois */
-.month{ empty-cells:hide;position:absolute; top:350px; left:605px;}/* Position du contenu */
+	.months {
+		font-size: 2em;
+		position: relative;
+		top: 10px;
+		left: 310px;
+	}
 
-/* Pour faire apparaitre les events */
-div.month table td:hover .events{ /
-position:absolute;
-	left:520px;
-	top:100px;
-	display:block;
-	font-size:1.5em;
-	color:red;
-}
-div.month table td .events{
-	position:absolute;
-	display:none;
+	/* Taille et position des liens de mois */
+	.month {
+		empty-cells: hide;
+		position: absolute;
+		top: 350px;
+		left: 418px;
+	}
+
+	/* Position du contenu */
+	/* Pour faire apparaitre les events */
+	div.month table td:hover .events {
+	/ position: absolute;
+		left: 520px;
+		top: 100px;
+		display: block;
+		font-size: 1.5em;
+		color: red;
+	}
+
+	div.month table td .events {
+		position: absolute;
+		display: none;
+	}
+
+	/* Taille et couleur des jours */
+	.day {
+		font-size: x-large;
+		color: 696969;
+		margin-left: 12px;
+		margin-top: 2px;
+	}
+
+	/* Afficher les jours */
+	div.month table td:hover .daytitle {
+		position: absolute;
+		left: 520px;
+		top: 0px;
+		display: block;
+		font-size: 2em;
+		color: 000035;
+	}
+
+	div.month table td .daytitle {
+		display: none;
+	}
+
+	/* Taille couleur et position du tableau */
+	div.month table {
+		width: 700px;
+		height: 500px;
+	}
+
+	div.month table th {
+		border-style: ridge;
+		border-color: black;
+		color: black;
+		background-image: url(Image/image.jpg);
+		border-width: thick;
+		border-radius: 20px;
+		font-size: large;
+	}
+
+	div.month table td {
+		border-style: solid;
+		border-color: black;
+		border-radius: 20px;
+	}
+
+	div.month table td:hover {
+		background-color: 6495 ED;
+	}
+
+	div.month table td li {
+		position: relative;
+	}
+
+	/* Taille et position de l'indicateur d'évènement */
+	.pokeball {
+		position: absolute;
+		width: 14px;
+		height: 14px;
+	}
+
+	/* Caractéristiques des liens */
+	a:link {
+		text-decoration: none;
+		color: black;
+	}
+
+	a:visited {
+		text-decoration: none;
+		color: black;
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: #C0C0C0;
+	}
+
+	a:active {
+		text-decoration: none;
+		color: white;
+	}
+
+	/* Position et taille de l'ensemble */
+	div#cal2 {
+		display: block;
+		position: absolute;
+		width: 900px;
+		height: 320px;
+		top: 270px;
+		left: 50%;
+		margin-left: -300px;
+		margin-bottom: 200px;
+		z-index: 2;
+	}
+
 }
 
-/* Taille et couleur des jours */
-.day{
-	font-size:x-large;
-	color:696969;
-	margin-left:12px;
-	margin-top:2px;
-}
+@media screen and (max-width: 1059px) {
+	div.year{position:absolute;z-index:4;top:30px;left:120px;}
+	div.months{position:absolute;z-index:4; top:50px;margin-left:5px;}
+	div.month{position:absolute;z-index:4;top:85px; width:270px;}
+	.year{font-weight:700; font-size:1.40em;}
+	.months{ font-size:0.75em;}
+	.month{ empty-cells:hide;}
 
-/* Afficher les jours */
-div.month table td:hover .daytitle{
-	position:absolute;
-	left:520px;
-	top:0px;
-	display:block;
-	font-size:2em;
-	color:000035;
-}
+	div.month table td .events{
+		position:absolute;
+		display:none;
+	}
+	.day{
+		font-size:1em;
+		margin:0px;
+		text-align:center;
+	}
+	div.month table {
+		width: 200px;
+		height:230px;
+	}
+	div.month table th {
+		border-style:ridge;
+		border-color:black;
+		color:black;
+		background-image:url(Image/image.jpg);
+		border-radius:5px;
+		font-size:1.05em;
+	}
+	div.month table td {
+		border-style:solid;
+		border-color:grey;
+		border-radius:1px;
+	}
+	div.month table td li{
+		position:relative;
+	}
+	.pokeball{
+		position:absolute;
+		width:14px;height:14px;
+	}
 
-div.month table td .daytitle{
-	display:none;
-}
+	div.day a:link {text-decoration:none;}
+	div.months a:link {text-decoration:none;}
+	div.months a:visited {text-decoration:none;}
+	div.months a:hover {text-decoration:none;color:green;}
+	div.months a:active {text-decoration:none;color:green;}
 
-/* Taille couleur et position du tableau */
-div.month table {
-	width:500px;
-	height:300px;
-}
-div.month table th {
-	border-style:ridge;
-	border-color:black;
-	color:black;
-	background-image:url(Image/image.jpg);
-	border-width:thick;
-	border-radius:20px;
-	font-size:large;
-}
-div.month table td {
-	border-style:solid;
-	border-color:black;
-	border-radius:20px;
-}
-div.month table td:hover{
-	background-color:6495ED;
-}
-div.month table td li{
-	position:relative;
-}
 
-/* Taille et position de l'indicateur d'évènement */
-.pokeball{
-	position:absolute;
-	width:14px;height:14px;
-}
 
-/* Caractéristiques des liens */
-a:link {text-decoration:none;color:000035;}
-a:visited {text-decoration:none;color:000035;}
-a:hover {text-decoration:none;color:white;}
-a:active {text-decoration:none;color:white;}
-
-/* Position et taille de l'ensemble */
-div#cal2 {
-	display:block;position:absolute;
-	width:900px;height:320px;
-	top:270px;left:50%;margin-left:-300px;margin-bottom:200px; z-index:2;
 }
