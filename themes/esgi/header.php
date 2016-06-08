@@ -23,17 +23,3 @@
 		</div>
 	</header>
 	<div id="content">
-	<?php
-		if(!is_home()){
-			if(is_active_sidebar('sidebar-1')){
-				echo '<aside>';
-				dynamic_sidebar('sidebar-1');
-				echo '</aside>';
-			}
-			if(is_active_sidebar('sidebar-2')){
-				echo '<aside>';
-				dynamic_sidebar('sidebar-2');
-				echo '</aside>';
-			}
-		}
-	?>

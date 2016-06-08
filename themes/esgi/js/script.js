@@ -3,8 +3,7 @@ $(document).ready(function(){
 	var header = $("header");
 	var content = $("#content");
 
-	TailleHeader(0);
-	content.css( "padding-top" , header.height() );
+	//TailleHeader(0);
 	content.css( "padding-bottom" , header.height() );
 
 	// $(window).scroll(function(){

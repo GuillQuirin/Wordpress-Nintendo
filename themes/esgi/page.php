@@ -2,6 +2,13 @@
 get_header();
 
 
+if(is_active_sidebar('sidebar')){
+	echo "<div id='sidebar'>";
+		echo "<ul>";
+		dynamic_sidebar('sidebar');	
+		echo "</ul>";
+	echo "</div>";
+}
 if(have_posts()){
 
 	//Articles non mis en avant
@@ -27,8 +34,5 @@ else{
 	<?php
 }
 
-if(is_active_sidebar('sidebar-form')){
-	dynamic_sidebar('sidebar-form');
-}
 
 get_footer();

@@ -29,6 +29,7 @@ h1{
 	header{
 	    width: 100%;
 	    position: fixed;
+	    top:0;
 	    height: 100px;
 	    background-color: white;
 	    z-index: 100;
@@ -42,7 +43,7 @@ h1{
 	}
 
 	div#logo{
-		width: 25%;
+		width: 100%;
 	    height: 100%;
 	    margin: 0 auto;
 	    text-align: center;
@@ -51,21 +52,22 @@ h1{
 	}
 	
 	header img{
-		max-height: 100%;
-		max-width: 100%;
-		position: absolute;
-		z-index: 1;
-		left:33%;
+	    max-height: 100%;
+	    max-width: 100%;
+	    position: absolute;
+	    z-index: 1;
+	    left: 50%;
+	    top: 50%;
+	    transform: translateX(-50%) translateY(-50%);
 	}
-	
+
 	header #slogan{
-		position: absolute;
-	    left: 0;
-	    bottom: -10px;
-	    margin: 7px 0;
+	    position: absolute;
+	    bottom: 0px;
+	    margin: 0;
 	    width: 100%;
-	    text-align: center;
-	    display: block;
+	    left: 50%;
+	    transform: translateX(-50%);
 	}
 
 	header .menu{
@@ -91,18 +93,26 @@ h1{
 	}
 
 /* ASIDE */
-	aside{
-		position: absolute;
-		width: 20%;
-		right:0;
+	#sidebar{
+	    width: 20%;
+	    display: inline-block;
+	    vertical-align: top;
+	    background-color: red;
+	    margin: 0;
+	    position: absolute;
+	    top: 300px;
+	    right: 0;
+	    transform: translateY(-50%);
 	}
 
 /* CONTENT */
 	#content{
-		// background-color: #7BBCF6;
 		width: 100%;
 		height: 100%;
 		margin: 0 auto;
+		margin-top: 100px;
+		padding-top: 50px;
+		position: relative;
 	}
 
 /* ACCUEIL */
@@ -141,6 +151,10 @@ section#news{
     height: 250px;
     border: 1px solid;
     margin: 40px auto;
+}
+
+article{
+	width: 80%;
 }
 
 article.pres-0{
@@ -200,6 +214,10 @@ article.no-img{
 
 /* FAQ */
 
+ul#faq{
+	padding:0;
+}
+
 #faq li{
 	margin: 3% 0;
 	list-style:none;
@@ -216,7 +234,7 @@ article.no-img{
 
 #faq li .reponse{
     display: none;
-    width: 60%;
+    width: 80%;
     margin: 30px auto;
     padding: 25px 0;
     padding-left: 10%;
@@ -229,7 +247,7 @@ article.no-img{
     height: auto;
     max-width: 10%;
     position: absolute;
-    left: 3%;
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -238,6 +256,7 @@ article.no-img{
     display: block;
     width: 100%;
     margin: 5% auto;
+    font-size: 20px;
 }
 
 footer{
@@ -271,14 +290,6 @@ footer li{
 	    width: 100%;
 	    text-align: center;
 	    display: block;
-	}
-
-	header img{
-		max-height: 100%;
-    	max-width: 100%;
-    	position: absolute;
-    	z-index: 1;
-    	left:0;
 	}
 	
 	header .menu{
