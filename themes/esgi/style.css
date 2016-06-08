@@ -196,10 +196,40 @@ article.pres-0 img, article.pres img{
 	list-style:none;
 }
 
-#faq li:first-line{
-	font-weight: bold;
+#faq li .question{
+	width: 40%;
+    height: 30px;
+    margin: 0 auto;
+    display: block;
+    font-weight: bold;
+    cursor:pointer;
 }
 
+#faq li .reponse{
+    display: none;
+    width: 60%;
+    margin: 30px auto;
+    padding: 25px 0;
+    padding-left: 10%;
+    border: 1px solid;
+    background-color: aqua;
+    position: relative;
+}
+
+#faq li .reponse img {
+    height: auto;
+    max-width: 10%;
+    position: absolute;
+    left: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#faq li .reponse p {
+    display: block;
+    width: 100%;
+    margin: 5% auto;
+}
 
 footer{
 	float: left;

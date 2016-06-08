@@ -19,6 +19,11 @@ $(document).ready(function(){
 	// 	}
 	// });
 
+	$(".question").click(function(){
+		var li = $(this).parent();
+		console.log(li.find(".reponse").slideToggle("slow"));
+	});
+
 	function TailleHeader(complet){
 		header.attr("status","1");
 		if(complet) 
