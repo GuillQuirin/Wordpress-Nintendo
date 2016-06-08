@@ -109,6 +109,8 @@ function theme_options(){
 	//register_setting('my_theme', 'nb_avant');
 	register_setting('my_theme','background');	
 	register_setting('my_theme','text-color');
+	register_setting('my_theme','header_link');
+	register_setting('my_theme','header_link_v');
 
 	//Enregistrement de l'image en banniere
 	if(isset($_FILES["img"]) && $_FILES["img"]["error"]!=4)
@@ -162,6 +164,14 @@ function options_page(){
 
 		echo '<label><h3>Couleur du texte:</h3>'
 				.'<input type="color" name="text-color" value='.get_option('text-color').'>'
+			.'</label>';
+
+		echo '<label><h3>Couleur des liens du menu:</h3>'
+				.'<input type="color" name="header_link" value='.get_option('header_link').'>'
+			.'</label>';
+
+		echo '<label><h3>Couleur des liens ciblés (:hover) du menu:</h3>'
+				.'<input type="color" name="header_link_v" value='.get_option('header_link_v').'>'
 			.'</label>';
 
 		/*echo '<label><p>Derniers articles en avant à mettre dans le widget:</p>'
@@ -219,11 +229,17 @@ add_action( 'wp_after_body', 'contenu_description' );
 function head_style(){
 	echo '<meta name="viewport" content="width=device-width" />';
 	echo '<style>'
-		.'body{'
+		.'#content{'
 			.'background-color:'
 			.get_option('background').';'	
 			.'color:'
-		.get_option('text-color').';}'
+			.get_option('text-color').';}'
+		.'header a{'
+			.'color:'
+			.get_option('header_link').';}'
+		.'header a:hover{'
+			.'color:'
+			.get_option('header_link_v').';}'
 		.'</style>';
 }
 add_action('wp_head','head_style');

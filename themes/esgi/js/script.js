@@ -5,18 +5,19 @@ $(document).ready(function(){
 
 	TailleHeader(0);
 	content.css( "padding-top" , header.height() );
+	content.css( "padding-bottom" , header.height() );
 
-	$(window).scroll(function(){
-		console.log(fenetre.scrollTop());
-		if(header.attr("status")=="0"){
-			if(fenetre.scrollTop() > header.height()/2){
-				TailleHeader(0);	
-			}
-			else{
-				TailleHeader(1);
-			}
-		}
-	});
+	// $(window).scroll(function(){
+	// 	console.log(fenetre.scrollTop());
+	// 	if(header.attr("status")=="0"){
+	// 		if(fenetre.scrollTop() > header.height()/2){
+	// 			TailleHeader(0);	
+	// 		}
+	// 		else{
+	// 			TailleHeader(1);
+	// 		}
+	// 	}
+	// });
 
 	function TailleHeader(complet){
 		header.attr("status","1");

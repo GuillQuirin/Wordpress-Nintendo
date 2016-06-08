@@ -23,30 +23,33 @@ a{
 	header{
 	    width: 100%;
 	    position: fixed;
-	    height: 150px;
+	    height: 100px;
 	    background-color: white;
 	    z-index: 100;
 	}
 	
 	div#header{
-		width: 100%;
+		width: 95%;
 		height: 100%;
+		margin: 0 auto;
 		position: relative;
 	}
 
 	div#logo{
-		width: 100%;
-	    display: inline-block;
+		width: 25%;
 	    height: 100%;
 	    margin: 0 auto;
 	    text-align: center;
+	    display: block;
+	    position: relative;
 	}
 	
 	header img{
 		max-height: 100%;
 		max-width: 100%;
-		position: inherit;
-		left: 0;
+		position: absolute;
+		z-index: 1;
+		left:33%;
 	}
 	
 	header #slogan{
@@ -198,19 +201,42 @@ article.pres-0 img, article.pres img{
 }
 
 @media all and (max-width: 800px) {
+	div#logo{
+		width: 25%;
+	    height: 100%;
+	    margin: 0 auto;
+	    text-align: center;
+	    display: block;
+	    position: relative;
+	}
+	
+	
+	header #slogan{
+		position: absolute;
+	    left: 0;
+	    bottom: -10px;
+	    margin: 7px 0;
+	    width: 100%;
+	    text-align: center;
+	    display: block;
+	}
+
 	header img{
 		max-height: 100%;
-    	max-width: 30%;
-    	vertical-align: top;
-    	position: inherit;
-    	left: 0;
+    	max-width: 100%;
+    	position: absolute;
+    	z-index: 1;
+    	left:0;
 	}
-		
-	ul.menu{
-	padding: 0;
-    width: 100%;
-    line-height: normal;
-    position: absolute;
+	
+	header .menu{
+		line-height: normal;
+	}
+
+	header ul{
+		padding: 0;
+	    width: 100%;
+	    position: absolute;
 	}
 	
 	header li:nth-child(3) {
