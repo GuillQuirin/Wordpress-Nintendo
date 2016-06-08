@@ -10,7 +10,6 @@ Version: 0.1;
 
 body{
 	margin: 0;
-	// background-color: #7BBCF6;
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center, center;
@@ -19,6 +18,13 @@ body{
 a{
 	text-decoration: none;
 }
+
+h1{
+    font-size: 30px;
+    text-align: center;
+    font-family: helvetica;
+}
+
 /* HEADER */
 	header{
 	    width: 100%;
@@ -185,8 +191,11 @@ article.pres-0 img, article.pres img{
     height: auto;
     margin: auto;
     opacity: 0.4;
-    background-color: grey; /*Si pas d'image*/
     z-index: 0;
+}
+
+article.no-img{
+	background-color: grey;
 }
 
 /* FAQ */
@@ -234,6 +243,7 @@ article.pres-0 img, article.pres img{
 footer{
 	float: left;
     width: 100%;
+    padding: 30px 0;
 }
 
 footer li{

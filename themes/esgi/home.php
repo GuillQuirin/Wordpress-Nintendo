@@ -33,8 +33,10 @@ if(is_home()){
 					$imageData = wp_get_attachment_image_src(get_post_thumbnail_id ( $post_ID ), 'medium');
 					
 					echo "<a href='".get_permalink()."'>";
-						echo ($cpt==0) ? "<article class='pres-0'>" : "<article class='pres'>";
-
+						echo ($cpt==0) ? "<article class='pres-0 " : "<article class='pres ";
+					
+						echo (isset($imageData[0])) ? "'>" : " no-img'>"; 
+						
 						echo "<p class='titre'>";
 							the_title();
 						echo "</p>";
@@ -43,9 +45,11 @@ if(is_home()){
 							if($cpt==0) the_content();
 						echo "</div>";
 
-						echo "<img src='";
-							echo $imageData[0];
-						echo "'>";
+						if(isset($imageData[0])){
+							echo "<img src='";
+								echo $imageData[0];
+							echo "'>";
+						}
 
 						echo "</article>";
 					echo "</a>";
