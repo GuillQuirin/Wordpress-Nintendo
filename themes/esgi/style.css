@@ -154,9 +154,7 @@ section#news{
     margin: 40px auto;
 }
 
-article{
-	width: 80%;
-}
+
 
 article.pres-0{
     width: 60%;
@@ -324,6 +322,10 @@ footer li{
 	    border: 1px solid;
 	    margin: 40px auto;
 	}
+	
+	article{
+		width: 100%;
+	}	
 
 	article.pres-0{
 	    width: 100%;
@@ -332,7 +334,7 @@ footer li{
 
 	article.pres{
 	    margin: 0;
-	    padding: 0 1%;
+	    padding: 0;
 	    position: relative;
 	    overflow: hidden;
 	}
