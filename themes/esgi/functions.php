@@ -12,7 +12,7 @@ add_action('wp_enqueue_scripts', 'include_styles_scripts');
 function menus(){
 	register_nav_menus(array(
 		'main_menu' => 'Menu principal',
-		'secondary_menu' => 'Menu secondaire'
+		'foot_menu' => 'Menu secondaire'
 		)
 	);
 }
@@ -22,17 +22,12 @@ add_action('init','menus');
 /*Load de la zone de widget*/
 function sidebars(){
 	register_sidebar(array(
-		'name' 			=> __('Main Sidebar', 'esgi'),
-		'id' 			=> 'sidebar-home',
+		'name' 			=> __('Barre latérale', 'Sidebar'),
+		'id' 			=> 'sidebar',
 		'before_widget'	=> '<div>',
 		'after_widget'	=> '</div>',
-		'description'	=> __('Widgets in this area will be shown on', '')
-	));
-	register_sidebar(array(
-		'name' 			=> __('Form Sidebar', 'esgi'),
-		'id' 			=> 'sidebar-form',
-		'before_widget'	=> '<div>',
-		'after_widget'	=> '</div>',
+		'before_title'	=> '<h3>',
+		'after_title'	=> '</h3>',
 		'description'	=> __('Widgets in this area will be shown on', '')
 	));
 }
@@ -166,11 +161,11 @@ function options_page(){
 				.'<input type="color" name="text-color" value='.get_option('text-color').'>'
 			.'</label>';
 
-		echo '<label><h3>Couleur des liens du menu:</h3>'
+		echo '<label><h3>Couleur des liens des menus:</h3>'
 				.'<input type="color" name="header_link" value='.get_option('header_link').'>'
 			.'</label>';
 
-		echo '<label><h3>Couleur des liens ciblés (:hover) du menu:</h3>'
+		echo '<label><h3>Couleur des liens ciblés (:hover) des menus:</h3>'
 				.'<input type="color" name="header_link_v" value='.get_option('header_link_v').'>'
 			.'</label>';
 
@@ -234,10 +229,10 @@ function head_style(){
 			.get_option('background').';'	
 			.'color:'
 			.get_option('text-color').';}'
-		.'header a{'
+		.'header a, footer a{'
 			.'color:'
 			.get_option('header_link').';}'
-		.'header a:hover{'
+		.'header a:hover, footer a:hover{'
 			.'color:'
 			.get_option('header_link_v').';}'
 		.'</style>';
@@ -262,18 +257,18 @@ wp_register_script( 'script', get_template_directory_uri().'/js/script.js', 'jQu
 
 /* Creation d'un widget */
 function my_widgets(){
-	register_widget('link_custom');	
+	register_widget('event');	
 }
 add_action('widgets_init', 'my_widgets');
 
-class link_custom extends WP_Widget{
-	function link_custom(){
-		parent::__construct(false, 'Lien personnalise');
+class event extends WP_Widget{
+	function event(){
+		parent::__construct(false, 'Evenement à venir');
 		$options = array(
 			'classname' => 'link-custom',
-			'description' => 'ceci est notre premier widget'
+			'description' => 'Prochain évenement prévu'
 			);
-		$this->WP_Widget('link-custom','Lien personnalisé',$options);
+		$this->WP_Widget('link-custom','Evenement à venir',$options);
 	}
 	function widget($instance){
 		echo '<a href="'.$instance['url'].'">'.$instance['name'].'</a>';
@@ -299,11 +294,11 @@ class link_custom extends WP_Widget{
 add_action('init', 'newcustomposttype');
 
 function newcustomposttype(){
-	register_post_type('team', 
+	register_post_type('games', 
 		array(
 			'labels' => array(
-				'name' => __('Equipe'),
-				'singular_name' => __('Membre')
+				'name' => __('Jeux'),
+				'singular_name' => __('Jeu')
 				),
 		'public' => true,
 		'has_archive' =>true,

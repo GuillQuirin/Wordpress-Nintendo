@@ -2,8 +2,8 @@
 	</div>
 	<footer>
 	<?php 
-	if(has_nav_menu('secondary')){
-		wp_nav_menu(array('theme-location' => 'secondary'));
+	if(has_nav_menu('foot_menu')){
+		wp_nav_menu(array('theme_location' => 'foot_menu'));
 	} 
 	?>
 	</footer>

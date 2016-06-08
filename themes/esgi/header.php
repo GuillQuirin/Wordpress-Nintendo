@@ -17,23 +17,9 @@
 			</div>
 			<?php 
 			if(has_nav_menu('main_menu')):
-				wp_nav_menu(array('theme-location' => 'main_menu'));
+				wp_nav_menu(array('theme_location' => 'main_menu'));
 			endif;
 			?>
 		</div>
 	</header>
 	<div id="content">
-	<?php
-		if(!is_home()){
-			if(is_active_sidebar('sidebar-1')){
-				echo '<aside>';
-				dynamic_sidebar('sidebar-1');
-				echo '</aside>';
-			}
-			if(is_active_sidebar('sidebar-2')){
-				echo '<aside>';
-				dynamic_sidebar('sidebar-2');
-				echo '</aside>';
-			}
-		}
-	?>
