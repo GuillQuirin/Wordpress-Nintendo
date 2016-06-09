@@ -101,7 +101,6 @@ function theme_options(){
 
 	//Enregistrement du texte Description
 	register_setting('my_theme', 'description');
-	//register_setting('my_theme', 'nb_avant');
 	register_setting('my_theme','background');	
 	register_setting('my_theme','text-color');
 	register_setting('my_theme','header_link');
@@ -169,17 +168,11 @@ function options_page(){
 				.'<input type="color" name="header_link_v" value='.get_option('header_link_v').'>'
 			.'</label>';
 
-		/*echo '<label><p>Derniers articles en avant à mettre dans le widget:</p>'
-				.'<input type="number" name="nb_avant" min="0" max="6" value="'.get_option('nb_avant').'"> articles'
-			.'</label>';
-		*/
-
 		echo '<h3>Image de bannière</h3>';
 		echo '<label for="label_img">';
 			echo '<img id="banniere_img" src="'.get_template_directory_uri().'/img/'.get_option("img").'">';
 			echo '<input id="label_img" name="img" type="file">';
 		echo '</label>';
-
 
 		echo '<h3>Fond d\'écran de la bannière</h3>';
 		echo '<label for="label_bg">';
@@ -257,37 +250,17 @@ wp_register_script( 'script', get_template_directory_uri().'/js/script.js', 'jQu
 
 /* Creation d'un widget */
 function my_widgets(){
-	register_widget('event');	
-}
-add_action('widgets_init', 'my_widgets');
 
-class event extends WP_Widget{
-	function event(){
-		parent::__construct(false, 'Evenement à venir');
-		$options = array(
-			'classname' => 'link-custom',
-			'description' => 'Prochain évenement prévu'
-			);
-		$this->WP_Widget('link-custom','Evenement à venir',$options);
-	}
-	function widget($instance){
-		echo '<a href="'.$instance['url'].'">'.$instance['name'].'</a>';
-	}
-	function update($new_instance, $old_instance){
-		return $new_instance;
-	}
-	function form($instance){
-		$params = array(
-			'url' => 'http://google.com',
-			'name' => 'Google'
-		);
-		$instance = wp_parse_args($instance,$params);
-		echo '<label>URL du lien</label>'
-			.'<input type="text" id="'.$this->get_field_id('url').'" name="'.$this->get_field_id('url').'" value="'.$instance['url'].'">'
-			.'<label>Titre du lien</label>'
-			.'<input type="text" id="'.$this->get_field_id('name').'" name="'.$this->get_field_id('name').'" value="'.$instance['name'].'">';
-	}
+	//Widget du prochain evenement
+	include_once plugin_dir_path(__FILE__).'event.php';	
+		register_widget('Evenement');
+	
+	//Shortcode des dernieres infos
+	include_once plugin_dir_path(__FILE__).'recent.php';
+		new Zero_Recent();	
 }
+
+add_action('widgets_init', 'my_widgets');
 
 /*Creation d'un nouveau type de contenu*/
 
@@ -311,7 +284,6 @@ function newcustomposttype(){
 		)
 	);
 }
-
 
 /* Shortcode */
 
