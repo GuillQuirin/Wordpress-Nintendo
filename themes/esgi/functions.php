@@ -258,6 +258,7 @@ wp_register_script( 'script', get_template_directory_uri().'/js/script.js', 'jQu
 /* Creation d'un widget */
 function my_widgets(){
 	register_widget('event');	
+	register_widget('actualite');	
 }
 add_action('widgets_init', 'my_widgets');
 
@@ -267,6 +268,33 @@ class event extends WP_Widget{
 		$options = array(
 			'classname' => 'link-custom',
 			'description' => 'Prochain évenement prévu'
+			);
+		$this->WP_Widget('link-custom','Evenement à venir',$options);
+	}
+	function widget($instance){
+		echo '<a href="'.$instance['url'].'">'.$instance['name'].'</a>';
+	}
+	function update($new_instance, $old_instance){
+		return $new_instance;
+	}
+	function form($instance){
+		$params = array(
+			'url' => 'http://google.com',
+			'name' => 'Google'
+		);
+		$instance = wp_parse_args($instance,$params);
+		echo '<label>URL du lien</label>'
+			.'<input type="text" id="'.$this->get_field_id('url').'" name="'.$this->get_field_id('url').'" value="'.$instance['url'].'">'
+			.'<label>Titre du lien</label>'
+			.'<input type="text" id="'.$this->get_field_id('name').'" name="'.$this->get_field_id('name').'" value="'.$instance['name'].'">';
+	}
+}
+
+class actualite extends WP_Widget{
+	function actualite(){
+		parent::__construct(false, 'Dernieres annonces');
+		$options = array(
+			'description' => 'Liste des news du site'
 			);
 		$this->WP_Widget('link-custom','Evenement à venir',$options);
 	}
