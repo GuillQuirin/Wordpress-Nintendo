@@ -129,6 +129,10 @@ h1{
 		position: relative;
 	}
 
+	article.contenu{
+		width: 80%;
+	}
+
 /* ACCUEIL */
 
 #banniere{
@@ -283,7 +287,12 @@ footer li{
     text-align: center;
 }
 
+
+/***************************** MEDIA QUERY **************************/
+
 @media all and (max-width: 800px) {
+	
+	/* HEADER */
 	div#logo{
 		width: 25%;
 	    height: 100%;
@@ -292,7 +301,6 @@ footer li{
 	    display: block;
 	    position: relative;
 	}
-	
 	
 	header #slogan{
 		position: absolute;
@@ -330,13 +338,25 @@ footer li{
 		display: none;
 	}
 
+	/* SIDEBAR */
+	
+	#sidebar{
+		width: 100%;
+	    display: inline-block;
+	    background-color: white;
+	    margin: 0;
+	    position: initial;
+	    transform: initial;
+	}
+
+	/* ACCUEIL */
 	section#news{
 	    height: 250px;
 	    border: 1px solid;
 	    margin: 40px auto;
 	}
 	
-	article{
+	article.contenu{
 		width: 100%;
 	}	
 
@@ -346,6 +366,7 @@ footer li{
 	}
 
 	article.pres{
+		width: 100%;
 	    margin: 0;
 	    padding: 0;
 	    position: relative;
