@@ -363,15 +363,15 @@ footer li{
 		font-size: 2em;
 		position: relative;
 		top: 10px;
-		left: 310px;
+		left: 360px;
 	}
 
 	/* Taille et position des liens de mois */
 	.month {
 		empty-cells: hide;
 		position: absolute;
-		top: 350px;
-		left: 418px;
+		top: 200px;
+		left: 420px;
 	}
 
 	/* Position du contenu */
