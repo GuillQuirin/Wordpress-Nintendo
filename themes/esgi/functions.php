@@ -302,10 +302,13 @@ function listedesjeux(){
     $string = '';
     $query = new WP_Query( $args );
     if( $query->have_posts() ){
-        $string .= '<ul>';
-        while( $query->have_posts() ){
+        $string .= '<ul id="listJeux">';
+        while($query->have_posts()){
             $query->the_post();
-            $string .= '<li>' . get_the_title() . '</li>';
+            $string .= '<li>';
+            	$string .= get_the_post_thumbnail( );
+            	$string .= '<span class="nomJeu">'.get_the_title().'</spn>';
+            $string .= '</li>';
         }
         $string .= '</ul>';
     }

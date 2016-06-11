@@ -228,6 +228,21 @@ article.no-img{
 	background-color: grey;
 }
 
+/* ACTUALITE */
+
+div#actu{
+	margin: 0 auto;
+	width: 100%;
+}
+
+#actu ul{
+	padding: 0;
+}
+
+#actu li{
+	margin: 50px 0;
+}
+
 /* FAQ */
 
 ul#faq{
@@ -284,6 +299,35 @@ footer{
 footer li{
     display: inline-block;
     width: 15%;
+    text-align: center;
+}
+
+/* PLUGIN JEU */
+
+ul#listJeux{
+	padding: 0;
+}
+
+#listJeux li{
+	width: 25%;
+	display: inline-block;
+	position: relative;
+}
+
+li img{
+    max-width: 100%;
+    height: auto;
+}
+
+li .nomJeu{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 26px;
+    width: 100%;
+    background-color: rgba(81, 84, 86, 0.64);
     text-align: center;
 }
 
@@ -389,7 +433,14 @@ footer li{
 	    font-size: 15px;
 	    z-index: 1;
 	}
+
+	/* PLUGIN LISTE JEUX */
+
+	#listJeux li{
+		width: 50%;
+	}
 }
+	
 
 /* Calendrier */
 
