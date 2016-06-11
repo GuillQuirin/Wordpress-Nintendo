@@ -271,9 +271,17 @@ function newcustomposttype(){
 		array(
 			'labels' => array(
 				'name' => __('Jeux'),
-				'singular_name' => __('Jeu')
+				'singular_name' => __('Jeu'),
+				'all_items' => 'Tous les jeux',
+				'add_new_item' => 'Ajouter un jeu',
+				'edit_item' => 'Modifier un jeu',
+				'new_item' => 'Nouveau jeu',
+				'view_item' => 'Voir le jeu',
+				'search_item' => 'Rechercher parmi les jeux',
+				'not_found' => 'Pas de jeu trouvé'
 				),
 		'public' => true,
+		'capability_type' => 'post',
 		'has_archive' =>true,
 		'menu_position' => 4,
 		'supports' => array(
@@ -285,8 +293,29 @@ function newcustomposttype(){
 	);
 }
 
+function listedesjeux(){
+    $args = array(
+        'post_type' => 'games',
+        'post_status' => 'publish'
+    );
+
+    $string = '';
+    $query = new WP_Query( $args );
+    if( $query->have_posts() ){
+        $string .= '<ul>';
+        while( $query->have_posts() ){
+            $query->the_post();
+            $string .= '<li>' . get_the_title() . '</li>';
+        }
+        $string .= '</ul>';
+    }
+    wp_reset_postdata();
+    return $string;
+}
+
 /* Shortcode */
 
+add_shortcode('ListGames','listedesjeux');
 add_shortcode('Calendrier','calendrierplug');
 
 /* CSS pour le Back */

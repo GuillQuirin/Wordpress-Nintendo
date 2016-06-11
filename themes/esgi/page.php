@@ -8,10 +8,7 @@ if(have_posts()){
 		?>
 		<article class="post contenu">
 			<h1><?php the_title(); ?></h1>
-			<div><?php the_content(); ?> </div>
-			<ol>
-				<?php wp_list_comments(); ?>
-			</ol>
+			<div id="actu"><?php the_content(); ?></div>
 		</article>
 		<?php
 	endwhile;
