@@ -8,7 +8,7 @@ if(have_posts()){
 		?>
 		<article class="post contenu">
 			<h1><?php the_title(); ?></h1>
-			<div id="actu"><?php the_content(); ?></div>
+			<div><?php the_content(); ?></div>
 		</article>
 		<?php
 	endwhile;
