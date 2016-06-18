@@ -450,6 +450,7 @@ li .nomJeu{
 	
 	article.contenu{
 		padding: 0 10%;
+    	width: 80%;
 	}	
 
 	article.pres-0{
@@ -495,6 +496,11 @@ li .nomJeu{
 	}
 	
 	/* SINGLE */
+
+	article.single #comments{
+		text-overflow: ellipsis;
+   		overflow: hidden;
+	}
 
 	#content_single p{
 		width: 90%;
