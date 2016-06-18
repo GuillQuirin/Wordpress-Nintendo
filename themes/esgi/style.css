@@ -100,7 +100,7 @@ h1{
 	    background-color: white;
 	    margin: 0;
 	    position: absolute;
-	    top: 300px;
+	    top: 200px;
 	    right: 0;
 	    transform: translateY(-50%);
 	}
@@ -130,7 +130,8 @@ h1{
 	}
 
 	article.contenu{
-		width: 80%;
+		width: 70%;
+		padding: 0 5%;
 	}
 
 /* ACCUEIL */
@@ -207,8 +208,16 @@ article.pres-0 .description{
     bottom: 0;
     padding: 0 20px;
     font-weight: bold;
+    width: 100%;
     font-size: 20px;	
     z-index: 1;
+}
+
+article.pres-0 .description p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 90%;
+    overflow: hidden;
 }
 
 article.pres-0 img, article.pres img{
@@ -226,6 +235,38 @@ article.pres-0 img, article.pres img{
 
 article.no-img{
 	background-color: grey;
+}
+
+/* SINGLE */
+
+article.single #comments{
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    margin: 28px auto;
+    background-color: rgba(236, 134, 24, 0.74);
+    height: 50px;
+    line-height: 50px;
+}		
+
+article.single .commentlist{
+	display: none;
+}
+
+#image_single{
+	width: 20%;
+    position: absolute;
+    right: 0;
+    top: 300px;
+}
+
+#image_single img{
+	width: 100%;
+	height: auto;
+}
+
+#content_single{
+	font-size: 20px;
 }
 
 /* ACTUALITE */
@@ -390,7 +431,7 @@ li .nomJeu{
 	header #slogan{
 		display: none;
 	}
-
+	
 	/* SIDEBAR */
 	
 	#sidebar{
@@ -404,18 +445,15 @@ li .nomJeu{
 
 	/* ACCUEIL */
 	section#news{
-	    height: 250px;
-	    border: 1px solid;
-	    margin: 40px auto;
+	    height: auto;
 	}
 	
 	article.contenu{
-		width: 100%;
+		padding: 0 10%;
 	}	
 
 	article.pres-0{
 	    width: 100%;
-	    margin-bottom: 30px;
 	}
 
 	article.pres{
@@ -434,6 +472,10 @@ li .nomJeu{
 	    margin: 5% auto;
 	}
 
+	article.pres-0 .titre{
+		margin: 1% auto 10%;
+	}
+
 	article.pres-0 .description{
 	    position: absolute;
 	    bottom: 0;
@@ -442,9 +484,30 @@ li .nomJeu{
 	    font-size: 15px;
 	    z-index: 1;
 	}
+	
+
+	#faq li .question{
+		width: 90%;
+	}
 
 	footer li{
 	    width: 30%;
+	}
+	
+	/* SINGLE */
+
+	#content_single p{
+		width: 90%;
+    	overflow-wrap: break-word;
+	}
+
+	#image_single{
+	    top: 0;
+		transition: width 1s;
+	}
+	
+	#image_single:hover{
+		width: 80%;
 	}
 
 	/* PLUGIN LISTE JEUX */

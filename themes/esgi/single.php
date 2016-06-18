@@ -1,14 +1,13 @@
 <?php
 get_header();
 
-echo '<h1>C EST UN SINGLE</h1>';
 if(have_posts()){
 	while(have_posts()):
 		the_post();
 		?>
-		<article class="post">
-			<h1><?php the_title(); ?></h1>
-			<div><?php the_content(); ?> </div>
+		<article class="post single contenu">
+			<h1 id='title_single'><?php the_title(); ?></h1>
+			<div id='content_single'><?php the_content(); ?> </div>
 			<?php
 			$custom = get_post_custom($post->ID);
 			$content = $custom['id_poste'][0];
@@ -16,12 +15,12 @@ if(have_posts()){
 				echo $content;
 			}
 			comments_template();
-			comment_form();
 			?>
-			<ol>
-				<?php wp_list_comments(); ?>
-			</ol>
 		</article>
+		<div id='image_single'>
+			<?php the_post_thumbnail(); ?>	
+		</div>
+
 		<?php
 	endwhile;
 }
@@ -33,8 +32,12 @@ else{
 	<?php
 }
 
-if(is_active_sidebar('sidebar-1')){
-	dynamic_sidebar('sidebar-1');
+if(is_active_sidebar('sidebar')){
+	echo "<div id='sidebar'>";
+		echo "<ul>";
+			dynamic_sidebar('sidebar');	
+		echo "</ul>";
+	echo "</div>";
 }
 
 get_footer();

@@ -38,4 +38,7 @@ $(document).ready(function(){
 
 	}
 
+	$('#comments').click(function(){
+		$('.commentlist').slideToggle();
+	})
 });
