@@ -56,7 +56,7 @@
 															{ 	
 															if($poke==0) 
 																{
-																echo "<a href=\"Calendrier2.php\">$d</a>"; //Redirection de l'évènement vers le Gros Calendrier 
+																echo $d;
 																echo "<img class='pokeball' alt='Pokeball' src='http://localhost/wordpress/wordpress/wp-content/uploads/2016/04/Pokeball.gif'>";
 																$poke=1;
 																}
@@ -68,6 +68,15 @@
 												}
 												?>
 										</div>
+										<div class="daytitle"> <!-- Affichage de la date du jour quand on passe la souris sur une case -->
+											<?php echo $date->days[$w-1]; ?> <?php echo $d; ?> <?php echo $date->months[$m-1]; ?>
+										</div>
+										<ul class="events">
+											<?php if(isset($events[$time])) { //S'il existe un évènement à la date traité, on affiche l'évènement
+												foreach($events[$time] as $e) { ?>
+													<li> <?php echo htmlspecialchars($e); ?> </li>
+												<?php } } ?>
+										</ul>
 									</td>
 								<?php if($w == 7) 
 									  { ?> <!-- Quand on arrive à la fin de la semaine on passe à une nouvelle ligne -->
