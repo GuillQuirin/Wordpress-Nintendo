@@ -156,31 +156,24 @@ function newcustomposttype(){
 
 add_action('init', 'newevent');
 
-function newevent(){
-	register_post_type('evenement',
+function newevent() {
+	register_post_type( 'Events',
 		array(
 			'labels' => array(
-				'name' => __('Events'),
-				'singular_name' => __('Event'),
+				'name' => __( 'Events' ),
+				'singular_name' => __( 'Events' ),
 				'all_items' => 'Tous les events',
 				'add_new_item' => 'Ajouter un event',
 				'edit_item' => 'Modifier un event',
 				'new_item' => 'Nouveau event',
-				'view_item' => 'Voir le jeu',
+				'view_item' => 'Voir le event',
 				'search_item' => 'Rechercher parmi les events',
 				'not_found' => 'Pas de event trouvé'
 			),
-			'public' => true,
-			'capability_type' => 'post',
-			'has_archive' =>true,
-			'menu_position' => 4,
-			'supports' => array(
-				'title',
-				'thumbnail',
-				'revisions'
-			)
+			'public' => true
 		)
 	);
+	register_taxonomy( 'Date', 'Events', array( 'hierarchical' => true, 'label' => 'Date', 'query_var' => true, 'rewrite' => true ) );
 }
 
 
