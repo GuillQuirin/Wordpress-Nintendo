@@ -125,7 +125,6 @@ h1{
 		min-height: 500px;
 		margin: 0 auto;
 		margin-top: 100px;
-		padding-top: 20px;
 		position: relative;
 	}
 
@@ -337,7 +336,7 @@ footer{
 }
 
 footer ul{
-	padding: 0 5%;
+	padding: 0;
 }
 
 footer li{
@@ -526,258 +525,115 @@ li .nomJeu{
 
 /* Calendrier */
 
-@media screen and (min-width: 1060px) {
-
-	.months {
-		font-size: 2em;
-		position: relative;
-		top: 10px;
-		left: 360px;
-	}
-
-	/* Taille et position des liens de mois */
-	.month {
-		empty-cells: hide;
-		position: absolute;
-		top: 200px;
-		left: 420px;
-	}
-
-	/* Position du contenu */
-	/* Pour faire apparaitre les events */
-	div.month table td:hover .events {
-	/ position: absolute;
-		left: 520px;
-		top: 100px;
-		display: block;
-		font-size: 1.5em;
-		color: red;
-	}
-
-	div.month table td .events {
-		position: absolute;
-		display: none;
-	}
-
-	/* Taille et couleur des jours */
-	.day {
-		font-size: x-large;
-		color: 696969;
-		margin-left: 12px;
-		margin-top: 2px;
-	}
-
-	/* Afficher les jours */
-	div.month table td:hover .daytitle {
-		position: absolute;
-		left: 520px;
-		top: 0px;
-		display: block;
-		font-size: 2em;
-		color: 000035;
-	}
-
-	div.month table td .daytitle {
-		display: none;
-	}
-
-	/* Taille couleur et position du tableau */
-	div.month table {
-		width: 700px;
-		height: 500px;
-	}
-
-	div.month table th {
-		border-style: ridge;
-		border-color: black;
-		color: black;
-		background-image: url(Image/image.jpg);
-		border-width: thick;
-		border-radius: 20px;
-		font-size: large;
-	}
-
-	div.month table td {
-		border-style: solid;
-		border-color: black;
-		border-radius: 20px;
-	}
-
-	div.month table td:hover {
-		background-color: 6495 ED;
-	}
-
-	div.month table td li {
-		position: relative;
-	}
-
-	/* Taille et position de l'indicateur d'évènement */
-	.pokeball {
-		position: absolute;
-		width: 14px;
-		height: 14px;
-	}
-
-	/* Caractéristiques des liens */
-	a:link {
-		text-decoration: none;
-		color: black;
-	}
-
-	a:visited {
-		text-decoration: none;
-		color: black;
-	}
-
-	a:hover {
-		text-decoration: none;
-		color: #C0C0C0;
-	}
-
-	a:active {
-		text-decoration: none;
-		color: white;
-	}
-
-	/* Position et taille de l'ensemble */
-	div#cal2 {
-		display: block;
-		position: absolute;
-		width: 900px;
-		height: 320px;
-		top: 270px;
-		left: 50%;
-		margin-left: -300px;
-		margin-bottom: 200px;
-		z-index: 2;
-	}
-
+div#calcontainer{
+	position: relative;
 }
 
-@media screen and (max-width: 1059px) {
-	.months {
-		font-size: 2em;
-		position: relative;
-		top: 10px;
-		left: 0px;
-	}
+.months {
+	text-align: center;
+	font-size: x-large;
+    margin: 20px auto;
+}
 
-	/* Taille et position des liens de mois */
-	.month {
-		empty-cells: hide;
-		position: absolute;
-		top: 350px;
-		left: 0px;
-		width:10px;
-		height:10px;
-	}
+/* Taille et position des liens de mois */
+.month {
+	empty-cells: hide;
+	width: 100%;
+}
 
-	/* Position du contenu */
-	/* Pour faire apparaitre les events */
-	div.month table td:hover .events {
-	/ position: absolute;
-		left: 520px;
-		top: 100px;
-		display: block;
-		font-size: 1.5em;
-		color: red;
-	}
+/* Position du contenu */
+/* Pour faire apparaitre les events */
+div.month table td:hover .events {
+	position: absolute;
+	left: 520px;
+	top: 100px;
+	display: block;
+	font-size: 1.5em;
+	color: red;
+}
 
-	div.month table td .events {
-		position: absolute;
-		display: none;
-	}
+div.month table td .events {
+	position: absolute;
+	display: none;
+}
 
-	/* Taille et couleur des jours */
-	.day {
-		font-size: x-large;
-		color: 696969;
-		margin-left: 12px;
-		margin-top: 2px;
-	}
+/* Taille et couleur des jours */
+.day {
+	font-size: x-large;
+	text-align: center;
+}
 
-	/* Afficher les jours */
-	div.month table td:hover .daytitle {
-		position: absolute;
-		left: 520px;
-		top: 0px;
-		display: block;
-		font-size: 2em;
-		color: 000035;
-	}
+/* Afficher les jours */
+div.month table td:hover .daytitle {
+	position: absolute;
+	left: 520px;
+	top: 0px;
+	display: block;
+	font-size: 2em;
+	color: 000035;
+}
 
-	div.month table td .daytitle {
-		display: none;
-	}
+div.month table td .daytitle {
+	display: none;
+}
 
-	/* Taille couleur et position du tableau */
+/* Taille couleur et position du tableau */
+div.month table {
+    width: 100%;
+    height: 500px;
+}
+
+div.month table th {
+	border-style: ridge;
+	border-color: black;
+	color: black;
+	background-image: url(Image/image.jpg);
+	border-radius: 20px;
+	font-size: large;
+}
+
+div.month table td {
+	border-style: double;
+	border-color: black;
+	border-radius: 20px;
+}
+
+div.month table td li {
+	position: relative;
+}
+
+/* Taille et position de l'indicateur d'évènement */
+.pokeball {
+	position: absolute;
+	width: 14px;
+	height: 14px;
+}
+
+/* Caractéristiques des liens */
+a:link {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #C0C0C0;
+}
+
+a:active {
+	text-decoration: none;
+	color: white;
+}
+
+@media screen and (max-width: 600px){
 	div.month table {
-		width: 300px;
-		height: 200px;
-	}
-
-	div.month table th {
-		border-style: ridge;
-		border-color: black;
-		color: black;
-		background-image: url(Image/image.jpg);
-		border-width: thick;
-		border-radius: 20px;
-		font-size: large;
-	}
-
-	div.month table td {
-		border-style: solid;
-		border-color: black;
-		border-radius: 20px;
-	}
-
-	div.month table td:hover {
-		background-color: 6495 ED;
-	}
-
-	div.month table td li {
-		position: relative;
-	}
-
-	/* Taille et position de l'indicateur d'évènement */
-	.pokeball {
-		position: absolute;
-		width: 14px;
-		height: 14px;
-	}
-
-	/* Caractéristiques des liens */
-	a:link {
-		text-decoration: none;
-		color: black;
-	}
-
-	a:visited {
-		text-decoration: none;
-		color: black;
-	}
-
-	a:hover {
-		text-decoration: none;
-		color: #C0C0C0;
-	}
-
-	a:active {
-		text-decoration: none;
-		color: white;
-	}
-
-	/* Position et taille de l'ensemble */
-	div#cal2 {
-		display: block;
-		position: absolute;
-		width: 900px;
-		height: 320px;
-		top: 270px;
-		left: 50%;
-		margin-left: -300px;
-		margin-bottom: 200px;
-		z-index: 2;
+	    height: auto;
 	}
 }
+
+
