@@ -173,7 +173,12 @@ function newevent() {
 			'public' => true
 		)
 	);
-	register_taxonomy( 'Date', 'Events', array( 'hierarchical' => true, 'label' => 'Date', 'query_var' => true, 'rewrite' => true ) );
+	register_taxonomy( 'Date', 'Events', array( 
+				'hierarchical' => true, 
+				'label' => 'Date', 
+				'query_var' => true, 
+				'rewrite' => true) 
+			);
 }
 
 
