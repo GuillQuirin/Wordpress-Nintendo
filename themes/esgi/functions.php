@@ -95,9 +95,7 @@ else{
 	}
 
 	function contenu_description() {
-		
-		echo "<img id='banniere_bg' src='".get_template_directory_uri()."/img/". get_option('bg')."'>";
-
+		echo "<div class='parallax' style='background-image:url(".get_template_directory_uri()."/img/".get_option('bg').")'></div>";
 		echo "<div id='banniere'>";
 			echo "<div id='banniere_img'><img src='".get_template_directory_uri()."/img/". get_option('img')."'></div>";
 			echo "<div id='banniere_desc'>".get_option('description')."</div>";
