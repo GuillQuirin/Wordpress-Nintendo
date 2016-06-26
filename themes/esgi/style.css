@@ -135,27 +135,35 @@ h1{
 
 /* ACCUEIL */
 
+.parallax{
+    height: 100vh;
+    margin-bottom: 50px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#parallax_logo{
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
 #banniere{
     width: 70%;
     margin: 0 auto;
-}
-
-#banniere img{
-	max-width: 100%;
-}
-
-.parallax{
-    height: 500px;
-    margin-bottom: 50px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top;
 }
 
 #banniere_img{
     width: 20%;
     display: inline-block;
     vertical-align: middle;
+}
+
+#banniere img{
+	max-width: 100%;
 }
 
 #banniere_desc{
@@ -444,6 +452,23 @@ li .nomJeu{
 	}
 
 	/* ACCUEIL */
+
+	#banniere{
+	    width: 80%;
+	}
+
+	#banniere_img{
+	    width: 100%;
+	}
+
+	#banniere img{
+		max-width: 100%;
+	}
+
+	#banniere_desc{
+	    width: 100%;
+	}
+
 	section#news{
 	    height: auto;
 	}

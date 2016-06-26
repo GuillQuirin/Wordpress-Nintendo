@@ -25,3 +25,10 @@
 input{
     display: block;
 }
+
+label.color{
+    display: inline-block;
+    width: 20%;
+    word-wrap: break-word;
+}
+

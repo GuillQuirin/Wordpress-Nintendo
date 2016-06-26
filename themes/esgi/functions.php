@@ -95,7 +95,9 @@ else{
 	}
 
 	function contenu_description() {
-		echo "<div class='parallax' style='background-image:url(".get_template_directory_uri()."/img/".get_option('bg').")'></div>";
+		echo "<div class='parallax' style='background-image:url(".get_template_directory_uri()."/img/".get_option('bg').")'>";
+			echo "<img id='parallax_logo' src='".get_template_directory_uri()."/img/".get_option('logo')."'>";
+		echo "</div>";
 		echo "<div id='banniere'>";
 			echo "<div id='banniere_img'><img src='".get_template_directory_uri()."/img/". get_option('img')."'></div>";
 			echo "<div id='banniere_desc'>".get_option('description')."</div>";
