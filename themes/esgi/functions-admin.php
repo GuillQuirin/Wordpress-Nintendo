@@ -132,26 +132,3 @@ function save_custom(){
 	}
 
 
-
-
-/* UPLOAD D'UN FICHIER */
-	function enregistrement_fichier($fichier, $nomBDD){
-		global $wpdb;
-
-		if($fichier["error"] > 0)
-			echo "Error: " . $fichier["error"] . "<br>";
-		else
-		{
-			$FileName = str_replace(" ","", $fichier["name"]);
-
-			$url = plugin_dir_path( __FILE__ );
-			move_uploaded_file($fichier["tmp_name"], $url .'/img/'. $fichier["name"]);
-		}
-		$results = $wpdb->get_results("SELECT COUNT(*) as nb FROM wp_options WHERE option_name='".$nomBDD."'");
-		
-		if($results[0]->nb == 0)
-			$wpdb->query("INSERT INTO wp_options (option_name, option_value) VALUES ('".$nomBDD."', '".$FileName."')");
-		else	
-			$wpdb->query("UPDATE wp_options SET option_value='".$FileName."' WHERE option_name='".$nomBDD."'");
-	}
-

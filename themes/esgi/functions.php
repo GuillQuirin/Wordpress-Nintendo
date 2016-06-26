@@ -154,6 +154,36 @@ function newcustomposttype(){
 	);
 }
 
+add_action('init', 'newevent');
+
+function newevent(){
+	register_post_type('evenement',
+		array(
+			'labels' => array(
+				'name' => __('Events'),
+				'singular_name' => __('Event'),
+				'all_items' => 'Tous les events',
+				'add_new_item' => 'Ajouter un event',
+				'edit_item' => 'Modifier un event',
+				'new_item' => 'Nouveau event',
+				'view_item' => 'Voir le jeu',
+				'search_item' => 'Rechercher parmi les events',
+				'not_found' => 'Pas de event trouvé'
+			),
+			'public' => true,
+			'capability_type' => 'post',
+			'has_archive' =>true,
+			'menu_position' => 4,
+			'supports' => array(
+				'title',
+				'thumbnail',
+				'revisions'
+			)
+		)
+	);
+}
+
+
 function listedesjeux(){
     $args = array(
         'post_type' => 'games',
@@ -214,5 +244,18 @@ function editor_tinymce($init_formats){
 
 add_filter('tiny_mce_before_init','editor_tinymce');
 
+add_action( "after_switch_theme", "esgi_creer_tables" );
 
+function esgi_creer_tables() {
+	global $wpdb;
+	$nom_table = $wpdb->prefix . 'events';
+	$sql = "CREATE TABLE $nom_table (
+     id bigint(20) unsigned NOT NULL auto_increment,
+     description varchar(50) NOT NULL,
+     date date NULL,
+      PRIMARY KEY  (id)
+   );";
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	dbDelta( $sql );
+}
 
