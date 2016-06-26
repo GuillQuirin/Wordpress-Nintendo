@@ -5,7 +5,7 @@ class Evenement extends WP_Widget
 
     public function __construct()
     {
-        parent::__construct('ajout', 'Gestion Evenement', array('description' => 'Pour gérer les evénements'));
+        parent::__construct('ajout', 'Infos Evenement', array('description' => 'Affichage du prochain évènement'));
     }
 
     function widget($args, $instance)
@@ -14,13 +14,12 @@ class Evenement extends WP_Widget
 
         global $wpdb;
 
-        echo "<form action=\"./forums/login.php?action=in\" method=\"post\">
+        echo "<h3>Prochain évènement:</h3>";
 
-	          <input type=\"text\" name=\"ajout\" />
-	          <input type=\"text\" name=\"delete\"  />
-
-	          <input type=\"submit\" name=\"Excecuter\" value=\"OK\" />
-              </form>";
-
+        $results = $wpdb->get_results("SELECT * FROM wp_options ORDER BY option_id LIMIT 1");
+        
+       if($results){
+         echo $results[0]->option_name;
+       }
     }
 }

@@ -2,7 +2,7 @@
 
 class Zero_Recent{
 	public function __construct(){
-		add_shortcode('zero_recent_articles', array($this, 'recent_html'));
+		add_shortcode('Recent_articles', array($this, 'recent_html'));
 	}
 
 	public function recent_html($atts, $content){
