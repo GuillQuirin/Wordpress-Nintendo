@@ -512,6 +512,23 @@ li .nomJeu{
 	}
 	
 
+#faq li .reponse{
+    display: none;
+    width: 80%;
+    margin: 30px auto;
+    padding: 25px 10%;
+    padding-left: 10%;
+    border: 1px solid;
+    background-color: aqua;
+    position: relative;
+}
+
+	#faq li .reponse img {
+	    position: inherit;
+	    transform:inherit;
+	    max-width: 100%;
+	}
+
 	#faq li .question{
 		width: 90%;
 	}
