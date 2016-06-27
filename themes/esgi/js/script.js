@@ -1,10 +1,11 @@
 $(document).ready(function(){
 	var fenetre = $(window);
 	var header = $("header");
+	var footer = $("footer");
 	var content = $("#content");
 
 	//TailleHeader(0);
-	//content.css( "padding-top" , header.height() );
+	content.css( "height" , $(window).height()-header.height()-footer.height() );
 
 	// $(window).scroll(function(){
 	// 	console.log(fenetre.scrollTop());
