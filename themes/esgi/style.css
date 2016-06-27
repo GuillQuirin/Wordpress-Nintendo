@@ -363,13 +363,17 @@ footer li a{
 }
 
 /* PLUGIN JEU */
+#listJeux{
+	margin:0;
+	padding: 0;
+}
 
 #listJeux li{
 	padding: 0;
 	width: 25%;
 	display: inline-block;
 	position: relative;
-	margin: 0 4%;
+	margin: 0 2%;
 }
 
 li img{
@@ -381,7 +385,7 @@ li.bg_jeu{
     height: 200px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: center;
 }
 
 li .nomJeu{
@@ -450,7 +454,7 @@ li .nomJeu{
 	/* SIDEBAR */
 	
 	#sidebar{
-	    width: 98%;
+	    width: 90%;
 	    display: block;
 	    margin: 25px auto;
 	    position: initial;
@@ -567,7 +571,7 @@ li .nomJeu{
 	/* PLUGIN LISTE JEUX */
 
 	#listJeux li{
-		width: 50%;
+		width: 46%;
 	}
 }
 	
