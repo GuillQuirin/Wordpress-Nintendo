@@ -5,7 +5,7 @@ $(document).ready(function(){
 	var content = $("#content");
 
 	//TailleHeader(0);
-	content.css( "height" , $(window).height()-header.height()-footer.height() );
+	content.css( "min-height" , $(window).height()-header.height()-footer.height() );
 
 	// $(window).scroll(function(){
 	// 	console.log(fenetre.scrollTop());
