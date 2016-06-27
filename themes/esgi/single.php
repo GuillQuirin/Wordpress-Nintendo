@@ -6,6 +6,7 @@ if(have_posts()){
 		the_post();
 		?>
 		<article class="post single contenu">
+			<img id="bg_single" src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id ( get_the_ID() ), 'medium')[0] ;?>" alt="Banniere d'article">
 			<h1 id='title_single'><?php the_title(); ?></h1>
 			<div id='content_single'><?php the_content(); ?> </div>
 			<?php
