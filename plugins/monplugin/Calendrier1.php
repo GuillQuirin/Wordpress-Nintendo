@@ -10,7 +10,7 @@
 		$dates = $date->getAll($year);
 	?>
 
-		
+	<div class="calendrier">
 		<div class="year">
 
 		</div> <!-- Affichage de l'année --> 
@@ -93,7 +93,7 @@
 					</table>
 				</div>
 		<?php }; ?>
-
+	</div>
 	<script>
 		$('.month').hide();
 		$('.month:first').show(); // Permet de montrer uniquement un mois

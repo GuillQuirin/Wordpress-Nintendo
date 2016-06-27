@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var content = $("#content");
 
 	//TailleHeader(0);
-	content.css( "padding-bottom" , header.height() );
+	//content.css( "padding-top" , header.height() );
 
 	// $(window).scroll(function(){
 	// 	console.log(fenetre.scrollTop());
