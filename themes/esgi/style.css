@@ -288,6 +288,8 @@ article.single .commentlist{
 
 #content_single{
 	font-size: 20px;
+	border: 1px solid;
+    padding: 20px;
 }
 
 /* ACTUALITE */
