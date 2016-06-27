@@ -1,4 +1,5 @@
 <?php
+setlocale(LC_TIME, 'fr_FR');
 get_header();
 
 echo '<h1> C EST UN INDEX 2</h1>';
