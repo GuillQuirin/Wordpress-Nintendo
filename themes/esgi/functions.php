@@ -194,9 +194,8 @@ function listedesjeux(){
         $string .= '<ul id="listJeux">';
         while($query->have_posts()){
             $query->the_post();
-            $string .= '<li>';
-            	$string .= get_the_post_thumbnail( );
-            	$string .= '<span class="nomJeu">'.get_the_title().'</spn>';
+            $string .= '<li class="bg_jeu" style="background-image:url('.wp_get_attachment_image_src(get_post_thumbnail_id ( get_the_ID() ), 'medium')[0].');">';
+            	$string .= '<span class="nomJeu">'.get_the_title().'</span>';
             $string .= '</li>';
         }
         $string .= '</ul>';

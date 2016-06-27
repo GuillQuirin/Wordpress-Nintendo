@@ -100,9 +100,11 @@ h1{
 	    background-color: white;
 	    margin: 0;
 	    position: absolute;
-	    top: 50px;
+	    top: 50%;
 	    right: 0;
-	    transform: translateY(-50%);
+	    transform: translateY(-70%);
+	    border: 5px red solid;
+    	border-radius: 5px;
 	}
 
 	#sidebar ul{
@@ -130,7 +132,7 @@ h1{
 
 	article.contenu{
 		width: 70%;
-		padding: 0 5%;
+    	padding: 3% 5%;
 	}
 
 /* ACCUEIL */
@@ -362,19 +364,24 @@ footer li a{
 
 /* PLUGIN JEU */
 
-ul#listJeux{
-	padding: 0;
-}
-
 #listJeux li{
+	padding: 0;
 	width: 25%;
 	display: inline-block;
 	position: relative;
+	margin: 0 4%;
 }
 
 li img{
     max-width: 100%;
     height: auto;
+}
+
+li.bg_jeu{
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
 }
 
 li .nomJeu{

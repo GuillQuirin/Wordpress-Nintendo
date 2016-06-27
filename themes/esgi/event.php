@@ -29,7 +29,7 @@ class Evenement extends WP_Widget
         if($results && is_array($results)){
             foreach($results as $evenement){
                 if($results && $evenement->date_event !== NULL){
-                    echo "<h4>".$evenement->post_title."</h4>";
+                    echo "<p>".strtoupper($evenement->post_title)."</p>";
                     echo "<p>Prévu pour le";
                         echo strftime(' %e ', strtotime($evenement->date_event));
                         echo ucfirst(strftime('%B', strtotime($evenement->date_event)));
