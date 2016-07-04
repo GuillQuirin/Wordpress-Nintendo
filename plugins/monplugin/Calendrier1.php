@@ -57,7 +57,7 @@
 															if($poke==0) 
 																{
 																echo $d;
-																echo "<img class='pokeball' alt='Pokeball' src='http://localhost/wordpress/wordpress/wp-content/uploads/2016/04/Pokeball.gif'>";
+																echo '<img id="img" src="'.get_template_directory_uri().'/img/'.get_option("icone").'">';
 																$poke=1;
 																}
 															} 

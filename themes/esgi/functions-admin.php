@@ -115,10 +115,10 @@ function save_custom(){
 				echo '<img id="banniere_img" src="'.get_template_directory_uri().'/img/'.get_option("img").'">';
 				echo '<input id="label_img" name="img" type="file">';
 			echo '</label>';
-			
+
 			echo '<label><h3>Description du site:</h3>'
 					.'<textarea name="description" id="banniere_desc">'.get_option('description').'</textarea>'
-				.'</label>';		
+				.'</label>';
 
 			echo '<label class="color"><h3>Couleur de fond:</h3>'
 					.'<input type="color" name="background" value='.get_option('background').'>'
@@ -140,6 +140,44 @@ function save_custom(){
 
 		echo '</form>';
 	}
+
+//Ajout de Calendrier image
+function menu_page1(){
+	add_menu_page('Calendrier',
+		'Calendrier',
+		'administrator',
+		'Calendarovi',
+		'options_page1');
+}
+add_action('admin_menu', 'menu_page1');
+
+//Champs à remplir dans l'onglet Options sup de l'interface
+function theme_options1(){
+
+	//Enregistrement de l'image de event
+	if(isset($_FILES["icone"]) && $_FILES["icone"]["error"]!=4)
+		enregistrement_fichier($_FILES["icone"], "icone");
+
+
+}
+add_action('admin_init','theme_options1');
+
+//Config de l'onglet Options sup
+function options_page1(){
+	echo '<h1>Configuration du Calendrier</h1>';
+	echo '<form action="options.php" method="post" enctype="multipart/form-data">';
+
+	settings_fields('my_theme');
+
+	echo '<h3>Image des évènements</h3>';
+	echo '<label for="icone">';
+	echo '<img id="img" src="'.get_template_directory_uri().'/img/'.get_option("icone").'">';
+	echo '<input id="icone" name="icone" type="file">';
+	echo '</label>';
+	echo '<input id="banniere_submit" value="Mettre à jour" type="submit">';
+	echo '</form>';
+}
+
 
 /* UPLOAD D'UN FICHIER */
 	function enregistrement_fichier($fichier, $nomBDD){
