@@ -53,47 +53,51 @@ function save_custom(){
 }
 
 
+//Champs à remplir dans l'onglet Options sup de l'interface
+function theme_options(){
+
+	//Enregistrement du texte Description
+	register_setting('my_theme','description');
+	register_setting('my_theme','background');	
+	register_setting('my_theme','text-color');
+	register_setting('my_theme','header_link');
+	register_setting('my_theme','header_link_v');
+	register_setting('my_theme','icone');
+	
+	//Enregistrement de l'image en banniere
+	if(isset($_FILES["img"]) && $_FILES["img"]["error"]!=4)
+		enregistrement_fichier($_FILES["img"], "img");
+
+	//Enregistrement du logo en banniere
+	if(isset($_FILES["logo"]) && $_FILES["logo"]["error"]!=4)
+		enregistrement_fichier($_FILES["logo"], "logo");
+
+	//Enregistrement du background en banniere
+	if(isset($_FILES["bg"]) && $_FILES["bg"]["error"]!=4)
+		enregistrement_fichier($_FILES["bg"], "bg");
+
+	//Enregistrement de l'image du calendrier
+	if(isset($_FILES["calendrier_icone"]) && $_FILES["calendrier_icone"]["error"]!=4)
+		enregistrement_fichier($_FILES["calendrier_icone"], "calendrier_icone");
+}
+add_action('admin_init','theme_options');
 
 
-/* OPTIONS SUPPLEMENTAIRES */
+/****************** INTERFACE **********************/
 
 	//Ajout de l'onglet Option sup dans l'interface WP
 	function menu_page(){
-		add_menu_page('Page d\'accueil',
-					   'Page d\'accueil',
+		add_menu_page('Apparence du site',
+					   'Apparence du site',
 					   'administrator',
-					   'manage_options',
-					   'options_page');
+					   'apparence_site',
+					   'options_site');
 	}
 	add_action('admin_menu', 'menu_page');
 
-	//Champs à remplir dans l'onglet Options sup de l'interface
-	function theme_options(){
-
-		//Enregistrement du texte Description
-		register_setting('my_theme','description');
-		register_setting('my_theme','background');	
-		register_setting('my_theme','text-color');
-		register_setting('my_theme','header_link');
-		register_setting('my_theme','header_link_v');
-
-		//Enregistrement de l'image en banniere
-		if(isset($_FILES["img"]) && $_FILES["img"]["error"]!=4)
-			enregistrement_fichier($_FILES["img"], "img");
-
-		//Enregistrement du logo en banniere
-		if(isset($_FILES["logo"]) && $_FILES["logo"]["error"]!=4)
-			enregistrement_fichier($_FILES["logo"], "logo");
-
-		//Enregistrement du background en banniere
-		if(isset($_FILES["bg"]) && $_FILES["bg"]["error"]!=4)
-			enregistrement_fichier($_FILES["bg"], "bg");
-	}
-	add_action('admin_init','theme_options');
-
 	//Config de l'onglet Options sup
-	function options_page(){
-		echo '<h1>Configuration de la page d\'accueil</h1>';
+	function options_site(){
+		echo '<h1>Configuration de l\'apparence du site</h1>';
 		echo '<form action="options.php" method="post" enctype="multipart/form-data">';
 
 			settings_fields('my_theme');
@@ -136,50 +140,21 @@ function save_custom(){
 					.'<input type="color" name="header_link_v" value='.get_option('header_link_v').'>'
 				.'</label>';
 
+			echo '<h4>Image du calendrier</h4>';
+				echo '<label for="label_icone">';
+					echo '<img id="cal_icone" src="'.get_template_directory_uri().'/img/'.get_option("calendrier_icone").'">';
+					echo '<input id="label_icone" name="calendrier_icone" type="file">';
+				echo '</label>';
+
+
+
 			echo '<input id="banniere_submit" value="Mettre à jour" type="submit">';
 
 		echo '</form>';
 	}
 
-//Ajout de Calendrier image
-function menu_page1(){
-	add_menu_page('Calendrier',
-		'Calendrier',
-		'administrator',
-		'Calendarovi',
-		'options_page1');
-}
-add_action('admin_menu', 'menu_page1');
+/******************** UPLOAD D'UN FICHIER *****************/
 
-//Champs à remplir dans l'onglet Options sup de l'interface
-function theme_options1(){
-
-	//Enregistrement de l'image de event
-	if(isset($_FILES["icone"]) && $_FILES["icone"]["error"]!=4)
-		enregistrement_fichier($_FILES["icone"], "icone");
-
-
-}
-add_action('admin_init','theme_options1');
-
-//Config de l'onglet Options sup
-function options_page1(){
-	echo '<h1>Configuration du Calendrier</h1>';
-	echo '<form action="options.php" method="post" enctype="multipart/form-data">';
-
-	settings_fields('my_theme');
-
-	echo '<h3>Image des évènements</h3>';
-	echo '<label for="icone">';
-	echo '<img id="img" src="'.get_template_directory_uri().'/img/'.get_option("icone").'">';
-	echo '<input id="icone" name="icone" type="file">';
-	echo '</label>';
-	echo '<input id="banniere_submit" value="Mettre à jour" type="submit">';
-	echo '</form>';
-}
-
-
-/* UPLOAD D'UN FICHIER */
 	function enregistrement_fichier($fichier, $nomBDD){
 		global $wpdb;
 

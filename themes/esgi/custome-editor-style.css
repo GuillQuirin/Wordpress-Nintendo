@@ -32,3 +32,14 @@ label.color{
     word-wrap: break-word;
 }
 
+#cal_icone{
+    max-width: 10%;
+    height: auto;
+}
+
+/******************************************************** MEDIA QUERY *****************************************/
+
+@media all and (max-width: 800px) {
+
+
+}

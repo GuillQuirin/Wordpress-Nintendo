@@ -57,7 +57,7 @@
 															if($poke==0) 
 																{
 																echo $d;
-																echo '<img id="img" src="'.get_template_directory_uri().'/img/'.get_option("icone").'">';
+																echo '<img class="evenement" src="'.get_template_directory_uri().'/img/'.get_option("calendrier_icone").'">';
 																$poke=1;
 																}
 															} 
