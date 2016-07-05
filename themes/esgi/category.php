@@ -1,7 +1,7 @@
 <?php
 get_header();
 
-echo '<h1>CECI EST UNE ARCHIVE 2</h1>';
+echo '<h1>CECI EST UNE LISTE DES CATEGORIES</h1>';
 if(have_posts()){
 	while(have_posts()):
 		the_post();

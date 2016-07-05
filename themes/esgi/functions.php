@@ -64,15 +64,7 @@ else{
 		echo '<style>'
 			.'#content{'
 				.'background-color:'
-				.get_option('background').';'	
-				.'color:'
-				.get_option('text-color').';}'
-			.'header a, footer a{'
-				.'color:'
-				.get_option('header_link').';}'
-			.'header a:hover, footer a:hover{'
-				.'color:'
-				.get_option('header_link_v').';}'
+				.get_option('background').';}'	
 			.'</style>';
 	}
 	add_action('wp_head','head_style');

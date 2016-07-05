@@ -59,9 +59,6 @@ function theme_options(){
 	//Enregistrement du texte Description
 	register_setting('my_theme','description');
 	register_setting('my_theme','background');	
-	register_setting('my_theme','text-color');
-	register_setting('my_theme','header_link');
-	register_setting('my_theme','header_link_v');
 	register_setting('my_theme','icone');
 	
 	//Enregistrement de l'image en banniere
@@ -126,18 +123,6 @@ add_action('admin_init','theme_options');
 
 			echo '<label class="color"><h3>Couleur de fond:</h3>'
 					.'<input type="color" name="background" value='.get_option('background').'>'
-				.'</label>';
-
-			echo '<label class="color"><h3>Couleur du texte:</h3>'
-					.'<input type="color" name="text-color" value='.get_option('text-color').'>'
-				.'</label>';
-
-			echo '<label class="color"><h3>Couleur des liens des menus:</h3>'
-					.'<input type="color" name="header_link" value='.get_option('header_link').'>'
-				.'</label>';
-
-			echo '<label class="color"><h3>Couleur des liens ciblés (:hover) des menus:</h3>'
-					.'<input type="color" name="header_link_v" value='.get_option('header_link_v').'>'
 				.'</label>';
 
 			echo '<h4>Image du calendrier</h4>';
