@@ -500,16 +500,7 @@ li .nomJeu{
 
 @media all and (max-width: 800px) {
 	
-	/* HEADER */
-	div#logo{
-		width: 25%;
-	    height: 100%;
-	    margin: 0 auto;
-	    text-align: center;
-	    display: block;
-	    position: relative;
-	}
-	
+	/* HEADER */	
 	header #slogan{
 		position: absolute;
 	    left: 0;
@@ -526,7 +517,9 @@ li .nomJeu{
 
 	header ul{
 		padding: 0;
-	    width: 100%;
+	    width: 70%;
+	    right:0;
+	    left: inherit;
 	    position: absolute;
 	}
 	
@@ -535,7 +528,7 @@ li .nomJeu{
 	}
 	
 	header li{
-	    width: 49%;
+	    width: 40%;
 	    text-align: center;
 	    display: inline-block;
 	    margin: 3px 0;
@@ -639,6 +632,8 @@ li .nomJeu{
 
 	footer li{
 	    width: 30%;
+	    vertical-align: top;
+        margin: 5px auto;
 	}
 	
 	/* SINGLE */
