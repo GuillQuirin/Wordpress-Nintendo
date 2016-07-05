@@ -321,10 +321,10 @@ article.single .commentlist{
 }
 
 #image_single{
-    width: 20%;
+    max-width: 15%;
     position: absolute;
-    right: 1%;
-    top: 10%;
+    right: 0;
+    top: 0;
 }
 
 #image_single img{
@@ -336,6 +336,7 @@ article.single .commentlist{
 	font-size: 20px;
 	border: 1px solid;
     padding: 20px;
+    background-color: white;
 }
 
 #content p{
