@@ -409,7 +409,7 @@ ul#faq{
     padding: 25px 0;
     padding-left: 10%;
     border: 1px solid;
-    background-color: aqua;
+    background-color: white;
     position: relative;
 }
 
@@ -621,7 +621,6 @@ li .nomJeu{
     padding: 25px 10%;
     padding-left: 10%;
     border: 1px solid;
-    background-color: aqua;
     position: relative;
 }
 
