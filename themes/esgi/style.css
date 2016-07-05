@@ -202,6 +202,7 @@ behavior: url(/pie/PIE.htc);
 #banniere{
     width: 70%;
     margin: 0 auto;
+    background-color: white;
 }
 
 #banniere_img{
@@ -219,6 +220,7 @@ behavior: url(/pie/PIE.htc);
     width: 70%;
     font-size: 20px;
     padding: 10px;
+    color: black;
 }
 
 section#news{
@@ -249,7 +251,8 @@ article.pres{
 
 article.pres-0 p, article.pres p{
     z-index: 2;
-    color: black;
+    color: white;
+    background-color: rgba(14, 14, 14, 0.51);
 }
 
 article .titre{
@@ -285,7 +288,7 @@ article.pres-0 img, article.pres img{
     width: 100%;
     height: auto;
     margin: auto;
-    opacity: 0.4;
+    opacity: 0.8;
     z-index: 0;
 }
 
