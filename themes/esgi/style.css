@@ -251,7 +251,7 @@ article.pres{
 
 article.pres-0 p, article.pres p{
     z-index: 2;
-    color: white;
+    color: white !important;
     background-color: rgba(14, 14, 14, 0.51);
 }
 
